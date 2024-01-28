@@ -26,6 +26,10 @@ namespace RhythmRecall.Models
         }
 
         public DbSet<Track> Tracks { get; set; }
+
+        public DbSet<User> Userss { get; set; }
+
+        public DbSet<TrackList> TrackLists { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

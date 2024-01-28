@@ -24,7 +24,8 @@ namespace RhythmRecall.Models
 
         public string Password { get; set; }
 
-
+        // TrackList can have many users
+        public ICollection<TrackList> TrackLists { get; set; }
 
     }
 }

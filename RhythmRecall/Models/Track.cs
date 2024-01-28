@@ -34,6 +34,19 @@ Table Track
 
         public DateTime ReleaseDate { get; set; }
 
+        // TrackList can have many tracks
+        public ICollection<TrackList> TrackLists { get; set;}
+    }
+
+    // DTO stands for data tranfer object
+    // we can omit some data which we dont want to send with API
+    public class TrackDto
+    {
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string ListenLater { get; set; }
     }
 }
 
