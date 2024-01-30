@@ -1,0 +1,11 @@
+{
+  "Title": "Aainaddd",
+  "Artist": "afkap",
+  "Album": "Waapsi",
+  "ReleaseDate": "1/12/2023"
+}
+
+
+
+// go to the path, open cmd, execute below command
+// curl -H "Content-Type:application/json" -d @track.json https://localhost:44387/api/trackdata/addtrack

@@ -1,0 +1,8 @@
+{
+  "Username": "Hellodf",
+  "Email": "og@og.cfadom",
+  "Password": "12daf3"
+}
+
+
+// curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/trackdata/adduser

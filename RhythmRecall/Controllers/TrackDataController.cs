@@ -4,7 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 using RhythmRecall.Models;
+using System.Diagnostics;
 
 namespace RhythmRecall.Controllers
 {
@@ -62,6 +64,25 @@ namespace RhythmRecall.Controllers
         // Find Track
 
         // Add Track
+        [HttpPost]
+        [ResponseType(typeof(Track))]
+        [Route("api/TrackData/AddTrack")]
+
+        public IHttpActionResult AddTrack(Track track)
+        {
+            // if model is not valid
+            // ask christine about this
+            if ( !ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Tracks.Add(track);
+            db.SaveChanges();
+
+            return CreatedAtRoute("Index", new { id = track.Id }, track );
+            
+        }
 
         // Update Track
 
@@ -78,6 +99,28 @@ namespace RhythmRecall.Controllers
         // Add track to discoverd list of user
 
         // Add track to listen later list of user
+
+        // Add User
+        [HttpPost]
+        [ResponseType(typeof(User))]
+        [Route("api/TrackData/AddUser")]
+        public IHttpActionResult AddUser(User user)
+        {
+
+  
+            Debug.WriteLine("--------------------------------");
+
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Userss.Add(user);
+            db.SaveChanges();
+
+            return Ok(user);
+        }
 
 
     }
