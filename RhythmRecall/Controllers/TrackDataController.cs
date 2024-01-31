@@ -8,6 +8,8 @@ using System.Web.Http.Description;
 using RhythmRecall.Models;
 using System.Diagnostics;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Web;
 
 namespace RhythmRecall.Controllers
 {
@@ -91,7 +93,7 @@ namespace RhythmRecall.Controllers
 
         public IHttpActionResult UpdateTrack(int id, Track track)
         {
-            // Model satate contains all value from post request
+            // Model state contains all value from post request
             // and it kind of assign those value with model
             // and if there are any invalid value we can throw some message on webpage
             // Model state is kindof server side validation
@@ -116,6 +118,23 @@ namespace RhythmRecall.Controllers
             // then changing the sate of that track to "Modified"
 
             db.Entry(track).State = EntityState.Modified;
+
+            // save to data and check if there are any error while saving to database
+
+            try
+            {
+                db.SaveChanges();
+
+            } catch(DbUpdateConcurrencyException)
+            {
+
+                throw;
+
+            }
+
+            Debug.WriteLine("Passed try catch block");
+
+            return StatusCode(HttpStatusCode.NoContent);
 
         }
 

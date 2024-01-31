@@ -1,0 +1,12 @@
+{
+  "Id": 1,
+  "Title": "I'm gone'",
+  "Artist": "Gabroo",
+  "Album": "Kaayd kannon",
+  "ReleaseDate": "2/12/2023"
+}
+
+
+
+// go to the path, open cmd, execute below command
+// curl -H "Content-Type:application/json" -d @trackUpdate.json https://localhost:44387/api/TrackData/UpdateTrack/1
