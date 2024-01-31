@@ -98,6 +98,9 @@ namespace RhythmRecall.Controllers
             // and if there are any invalid value we can throw some message on webpage
             // Model state is kindof server side validation
 
+            Debug.WriteLine("-----------IN update method --------------------");
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -140,6 +143,29 @@ namespace RhythmRecall.Controllers
 
 
         // Delete Track
+        [HttpPost]
+        [Route("api/TrackData/DeleteTrack/{id}")]
+        public IHttpActionResult DeleteTrack(int id)
+        {
+
+            // get track of given id
+            Track track = db.Tracks.Find(id);
+
+            // check if given id's track exist or not
+            if (track == null)
+            {
+                Debug.WriteLine("------ Track doesn't exist ------");
+
+                return NotFound();
+            }
+
+            // remove track from database
+            db.Tracks.Remove(track);
+            db.SaveChanges();
+
+            return Ok();
+
+        }
 
         // related method
 
