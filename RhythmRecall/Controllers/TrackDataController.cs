@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using RhythmRecall.Models;
 using System.Diagnostics;
+using System.Data.Entity;
 
 namespace RhythmRecall.Controllers
 {
@@ -80,11 +81,44 @@ namespace RhythmRecall.Controllers
             db.Tracks.Add(track);
             db.SaveChanges();
 
-            return CreatedAtRoute("Index", new { id = track.Id }, track );
+            return Ok();
             
         }
 
         // Update Track
+        [HttpPost]
+        [Route("api/TrackData/UpdateTrack/{id}")]
+
+        public IHttpActionResult UpdateTrack(int id, Track track)
+        {
+            // Model satate contains all value from post request
+            // and it kind of assign those value with model
+            // and if there are any invalid value we can throw some message on webpage
+            // Model state is kindof server side validation
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // check if id from get request and id of track is same or not
+
+            if (id != track.Id)
+            {
+                // print messag on console
+                Debug.WriteLine("ID mismatche between passed id and passed track id");
+                return BadRequest();
+            }
+
+            // if everything is valid
+            // update track to database
+            // Entry() return entity of track
+            // then changing the sate of that track to "Modified"
+
+            db.Entry(track).State = EntityState.Modified;
+
+        }
+
 
         // Delete Track
 
