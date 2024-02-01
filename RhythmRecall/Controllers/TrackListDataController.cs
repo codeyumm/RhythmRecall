@@ -38,5 +38,36 @@ namespace RhythmRecall.Controllers
             return Ok();
         }
 
+        // get list of listen later song
+
+        [HttpGet]
+        [Route("api/TrackListData/GetListenLaterList/{userId}")]
+
+        public IHttpActionResult GetListenLaterList(int userId)
+        {
+
+            // check if model state is valid or not
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest(ModelState);
+
+            }
+
+            // if data is valid
+            // get listen later list of user accordin to userId
+
+            List<TrackList> tracklist =  db.TrackLists.Where(
+
+                    tl => tl.UserId == userId
+
+                ).ToList();
+
+
+
+            return Ok(tracklist);
+        }
+
+
     }
 }
