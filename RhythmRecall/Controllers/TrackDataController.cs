@@ -170,6 +170,24 @@ namespace RhythmRecall.Controllers
         // related method
 
         // Display tracks of user
+        [HttpGet]
+        [Route("api/TrackData/DisplaySongs/{id}")]
+        public string DisplaySongs(int id)
+        {
+
+            List<TrackList> tracks = db.TrackLists.Where(
+
+                track => track.UserId == id
+
+                ).ToList();
+
+
+            foreach (var item in tracks)
+            {
+                Debug.WriteLine("----" + item.Tracks.Title + "------");
+            }
+            return "3";
+        }
 
         // Display tracks of discoverd list of user
 
