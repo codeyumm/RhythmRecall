@@ -42,6 +42,8 @@ namespace RhythmRecall.Controllers
             return Ok();
         }
 
+
+
         // get list of listen later song
 
         [HttpGet]
@@ -60,26 +62,93 @@ namespace RhythmRecall.Controllers
             }
 
             // if data is valid
-            // get listen later list of user accordin to userId
-
-            List<TrackList> tracklist =  db.TrackLists.Where(
-
-                    tl => tl.UserId == userId
-            ).ToList();
-
-            Debug.WriteLine("------" + tracklist.GetType() + "------");
+            // get listen later list of user accordin to userId and listen later should be true and discovered should be false
+            List<TrackList> tracklist =  db.TrackLists.Where(tl => tl.UserId == userId)
+                                                    .Where (tl => tl.ListenLater == 1)
+                                                    .Where (tl => tl.Discovered == 0)
+                                                    .ToList();
 
 
-            foreach (var track in tracklist)
+            // if we send tracklist it will send lot of data, which is not useful to user
+            // to reduce the load using dto
+            // create tracklist dto object
+            List<TrackListDto> listenLaterList = new List<TrackListDto> { };
+
+
+
+            // iterate through each object of tracklist
+            foreach( var track in tracklist)
             {
 
-                Debug.WriteLine("------" + track.Userss.Username + "------");
+                // get the value according to dto
+                // append object to listenlaterlist
+                listenLaterList.Add(new TrackListDto
+                {
+                    Id = track.TrackId,
 
-                Debug.WriteLine("------" + track.Tracks.Title + "------");
+                    Title = track.Tracks.Title,
+
+                    Username = track.Userss.Username
+
+                });
             }
 
 
-            return Ok(tracklist);
+            return Ok(listenLaterList);
+        }
+
+        // get list of discoverd song
+
+        [HttpGet]
+        [ResponseType(typeof(TrackList))]
+        [Route("api/TrackListData/GetDiscoverdList/{userId}")]
+
+        public IHttpActionResult GetDiscoverdList(int userId)
+        {
+
+            // check if model state is valid or not
+            if (!ModelState.IsValid)
+            {
+
+                return BadRequest(ModelState);
+
+            }
+
+            // if data is valid
+            // get listen later list of user accordin to userId and listen later should be false and discovered should be true
+
+            List<TrackList> tracklist = db.TrackLists.Where(tl => tl.UserId == userId)
+                                                    .Where(tl => tl.ListenLater == 0)
+                                                    .Where(tl => tl.Discovered == 1)
+                                                    .ToList();
+
+
+            // if we send tracklist it will send lot of data, which is not useful to user
+            // to reduce the load using dto
+            // create tracklist dto object
+            List<TrackListDto> dsicovedList = new List<TrackListDto> { };
+
+
+
+            // iterate through each object of tracklist
+            foreach (var track in tracklist)
+            {
+
+                // get the value according to dto
+                // append object to listenlaterlist
+                dsicovedList.Add(new TrackListDto
+                {
+                    Id = track.TrackId,
+
+                    Title = track.Tracks.Title,
+
+                    Username = track.Userss.Username
+
+                });
+            }
+
+
+            return Ok(dsicovedList);
         }
 
 

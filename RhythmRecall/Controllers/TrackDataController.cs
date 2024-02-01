@@ -42,27 +42,6 @@ namespace RhythmRecall.Controllers
             return TrackDtos;
         }
 
-        [HttpGet]
-        [Route("api/TrackData/TrackLis")]
-        public List<TrackListDto> ListTracksss()
-        {
-
-            List<TrackList> Tracks = db.TrackLists.ToList();
-
-            List<TrackListDto> TrackDtos = new List<TrackListDto>();
-
-            Tracks.ForEach(track =>
-            {
-
-                TrackDtos.Add(new TrackListDto()
-                {
-                    
-
-                }); ;
-            });
-
-            return TrackDtos;
-        }
 
         // Find Track
 
@@ -194,15 +173,9 @@ namespace RhythmRecall.Controllers
             return Ok(tracks);
         }
 
-        // Display tracks of discoverd list of user
-
-        // Display tracks of listen later list of user
-
-        // Add track to discoverd list of user
 
 
-        // Add track to listen later list of user
-
+        // add this to UserDataController
         // Add User
         [HttpPost]
         [ResponseType(typeof(User))]
