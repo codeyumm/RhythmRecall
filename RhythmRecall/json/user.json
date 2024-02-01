@@ -1,8 +1,106 @@
-{
-  "Username": "PRiyam",
-  "Email": "og@og",
-  "Password": "123"
-}
+[
+  {
+    "Username": "MusicLover21",
+    "Email": "musiclover@example.com",
+    "Password": "P@ssw0rd"      
+  },
+  {
+    "Username": "HipHopFanatic",
+    "Email": "fanatic@email.com",
+    "Password": "SecurePass123"
+  },
+  {
+    "Username": "RockNRoller",
+    "Email": "rocknroller@gmail.com",
+    "Password": "RockOn!567"
+  },
+  {
+    "Username": "PopPrincess",
+    "Email": "popprincess@example.com",
+    "Password": "PopStar#123"
+  },
+  {
+    "Username": "JazzEnthusiast",
+    "Email": "jazzlover@email.com",
+    "Password": "SmoothGrooves456"
+  },
+  {
+    "Username": "IndieExplorer",
+    "Email": "indie@example.com",
+    "Password": "IndieVibes789"
+  },
+  {
+    "Username": "EDMAddict",
+    "Email": "edmaddict@gmail.com",
+    "Password": "EDMBeats!23"
+  },
+  {
+    "Username": "ClassicalMaestro",
+    "Email": "classical@email.com",
+    "Password": "SymphonyClassic67"
+  },
+  {
+    "Username": "CountrySoul",
+    "Email": "countrylover@example.com",
+    "Password": "CountryRoads#45"
+  },
+  {
+    "Username": "RapRhymeMaster",
+    "Email": "raprhyme@email.com",
+    "Password": "RhymeTime!678"
+  },
+  {
+    "Username": "ReggaeRoots",
+    "Email": "reggaeroots@example.com",
+    "Password": "OneLoveReggae90"
+  },
+  {
+    "Username": "MetalHead",
+    "Email": "metalhead@email.com",
+    "Password": "MetallicaRocks!12"
+  },
+  {
+    "Username": "BluesExplorer",
+    "Email": "bluesexplorer@example.com",
+    "Password": "BluesySoul789"
+  },
+  {
+    "Username": "FunkGroover",
+    "Email": "funkgroover@email.com",
+    "Password": "FunkyBeats#34"
+  },
+  {
+    "Username": "SoulfulHarmony",
+    "Email": "soulful@email.com",
+    "Password": "HarmonySoul56"
+  },
+  {
+    "Username": "TechnoHead",
+    "Email": "technohead@example.com",
+    "Password": "TechnoBeats!789"
+  },
+  {
+    "Username": "GospelSpirit",
+    "Email": "gospel@email.com",
+    "Password": "SpiritualGospel123"
+  },
+  {
+    "Username": "PunkRebel",
+    "Email": "punkrebel@example.com",
+    "Password": "RebelHeart456"
+  },
+  {
+    "Username": "R&BHarmony",
+    "Email": "randb@email.com",
+    "Password": "RhythmBliss!789"
+  },
+  {
+    "Username": "AlternativeVibes",
+    "Email": "alternative@example.com",
+    "Password": "VibesOnTop567"
+  }
+]
+
 
 
 // curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/trackdata/adduser

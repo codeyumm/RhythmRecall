@@ -1,9 +1,146 @@
-{
-  "Title": "Aainaddd",
-  "Artist": "afkap",
-  "Album": "Waapsi",
-  "ReleaseDate": "1/12/2023"
-}
+[
+  {
+
+    "Title": "Sinister Flows",
+    "Artist": "Seedhe Maut",
+    "Album": "Lyrical Mayhem",
+    "ReleaseDate": "2023-07-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Gravitational Pull",
+    "Artist": "SUPERVILLAIN",
+    "Album": "Gravity",
+    "ReleaseDate": "2023-07-15T00:00:00Z"
+  },
+  {
+    
+    "Title": "8 Mile Drive",
+    "Artist": "Emiway",
+    "Album": "Street Stories",
+    "ReleaseDate": "2023-08-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Rap Revolution",
+    "Artist": "Raftaar",
+    "Album": "Revolt",
+    "ReleaseDate": "2023-08-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Maut Ka Safar",
+    "Artist": "Seedhe Maut",
+    "Album": "Desi Chronicles",
+    "ReleaseDate": "2023-09-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Gravity Waves",
+    "Artist": "SUPERVILLAIN",
+    "Album": "Gravity",
+    "ReleaseDate": "2023-09-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Mumbai Meri Jaan",
+    "Artist": "Emiway",
+    "Album": "City Vibes",
+    "ReleaseDate": "2023-10-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Rap King",
+    "Artist": "Raftaar",
+    "Album": "Crown",
+    "ReleaseDate": "2023-10-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Seedhe Raste",
+    "Artist": "Seedhe Maut",
+    "Album": "Straight Paths",
+    "ReleaseDate": "2023-11-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Zero Gravity",
+    "Artist": "SUPERVILLAIN",
+    "Album": "Gravity",
+    "ReleaseDate": "2023-11-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Dilli Darshan",
+    "Artist": "Emiway",
+    "Album": "Capital Chronicles",
+    "ReleaseDate": "2023-12-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Rap Resurrection",
+    "Artist": "Raftaar",
+    "Album": "Reborn",
+    "ReleaseDate": "2023-12-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Maut Ke Sathi",
+    "Artist": "Seedhe Maut",
+    "Album": "Eternal Companions",
+    "ReleaseDate": "2024-01-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Galactic Groove",
+    "Artist": "SUPERVILLAIN",
+    "Album": "Gravity",
+    "ReleaseDate": "2024-01-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Desi Swagger",
+    "Artist": "Emiway",
+    "Album": "Street Anthems",
+    "ReleaseDate": "2024-02-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Rap Revolution 2.0",
+    "Artist": "Raftaar",
+    "Album": "Revolt Continues",
+    "ReleaseDate": "2024-02-15T00:00:00Z"
+  },
+  {
+
+    "Title": "Seedha Style",
+    "Artist": "Seedhe Maut",
+    "Album": "Style Chronicles",
+    "ReleaseDate": "2024-03-01T00:00:00Z"
+  },
+  {
+
+    "Title": "Anti-Gravity Anthem",
+    "Artist": "SUPERVILLAIN",
+    "Album": "Gravity",
+    "ReleaseDate": "2024-03-15T00:00:00Z"
+  },
+  {
+ 
+    "Title": "Emiway Express",
+    "Artist": "Emiway",
+    "Album": "Fast Lane",
+    "ReleaseDate": "2024-04-01T00:00:00Z"
+  },
+  {
+ 
+    "Title": "Raftaar's Realm",
+    "Artist": "Raftaar",
+    "Album": "Royal Raps",
+    "ReleaseDate": "2024-04-15T00:00:00Z"
+  }
+]
+
 
 
 

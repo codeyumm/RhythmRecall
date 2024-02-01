@@ -1,0 +1,122 @@
+[
+  {
+    "UserId": 1,
+    "TrackId": 4,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 2,
+    "TrackId": 5,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 3,
+    "TrackId": 6,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 4,
+    "TrackId": 7,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 5,
+    "TrackId": 8,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 6,
+    "TrackId": 9,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 7,
+    "TrackId": 10,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 8,
+    "TrackId": 11,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 9,
+    "TrackId": 12,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 10,
+    "TrackId": 13,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 11,
+    "TrackId": 14,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 12,
+    "TrackId": 15,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 13,
+    "TrackId": 16,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 14,
+    "TrackId": 17,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 15,
+    "TrackId": 18,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 16,
+    "TrackId": 19,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 17,
+    "TrackId": 20,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 18,
+    "TrackId": 21,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 19,
+    "TrackId": 22,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 20,
+    "TrackId": 23,
+    "ListenLater": 0,
+    "Discovered": 1
+  }
+]

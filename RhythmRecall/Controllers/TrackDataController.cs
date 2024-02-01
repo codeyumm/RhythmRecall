@@ -71,7 +71,7 @@ namespace RhythmRecall.Controllers
         [ResponseType(typeof(Track))]
         [Route("api/TrackData/AddTrack")]
 
-        public IHttpActionResult AddTrack(Track track)
+        public IHttpActionResult AddTrack(List<Track> tracks)
         {
             // if model is not valid
             // ask christine about this
@@ -80,7 +80,12 @@ namespace RhythmRecall.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Tracks.Add(track);
+            foreach(var track in tracks)
+            {
+                db.Tracks.Add(track);
+            }
+
+           
             db.SaveChanges();
 
             return Ok();
@@ -172,7 +177,7 @@ namespace RhythmRecall.Controllers
         // Display tracks of user
         [HttpGet]
         [Route("api/TrackData/DisplaySongs/{id}")]
-        public string DisplaySongs(int id)
+        public IHttpActionResult DisplaySongs(int id)
         {
 
             List<TrackList> tracks = db.TrackLists.Where(
@@ -186,7 +191,7 @@ namespace RhythmRecall.Controllers
             {
                 Debug.WriteLine("----" + item.Tracks.Title + "------");
             }
-            return "3";
+            return Ok(tracks);
         }
 
         // Display tracks of discoverd list of user
@@ -195,13 +200,14 @@ namespace RhythmRecall.Controllers
 
         // Add track to discoverd list of user
 
+
         // Add track to listen later list of user
 
         // Add User
         [HttpPost]
         [ResponseType(typeof(User))]
         [Route("api/TrackData/AddUser")]
-        public IHttpActionResult AddUser(User user)
+        public IHttpActionResult AddUser(List<User> users)
         {
 
   
@@ -213,10 +219,14 @@ namespace RhythmRecall.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Userss.Add(user);
+            foreach( var user in users)
+            {
+                db.Userss.Add(user);
+            }
+
             db.SaveChanges();
 
-            return Ok(user);
+            return Ok();
         }
 
 
