@@ -6,10 +6,130 @@
     "Discovered": 0
   },
   {
-    "UserId": 2,
+    "UserId": 1,
     "TrackId": 5,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 6,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 7,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 8,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 9,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 10,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 11,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 12,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 1,
+    "TrackId": 13,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 2,
+    "TrackId": 14,
     "ListenLater": 0,
     "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 15,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 16,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 17,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 18,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 19,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 20,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 1,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 2,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 2,
+    "TrackId": 3,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 3,
+    "TrackId": 4,
+    "ListenLater": 1,
+    "Discovered": 0
+  },
+  {
+    "UserId": 3,
+    "TrackId": 5,
+    "ListenLater": 1,
+    "Discovered": 0
   },
   {
     "UserId": 3,
@@ -18,105 +138,85 @@
     "Discovered": 0
   },
   {
-    "UserId": 4,
+    "UserId": 3,
     "TrackId": 7,
-    "ListenLater": 0,
-    "Discovered": 1
+    "ListenLater": 1,
+    "Discovered": 0
   },
   {
-    "UserId": 5,
+    "UserId": 3,
     "TrackId": 8,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 6,
+    "UserId": 3,
     "TrackId": 9,
-    "ListenLater": 0,
-    "Discovered": 1
+    "ListenLater": 1,
+    "Discovered": 0
   },
   {
-    "UserId": 7,
+    "UserId": 3,
     "TrackId": 10,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 8,
+    "UserId": 3,
     "TrackId": 11,
-    "ListenLater": 0,
-    "Discovered": 1
+    "ListenLater": 1,
+    "Discovered": 0
   },
   {
-    "UserId": 9,
+    "UserId": 3,
     "TrackId": 12,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 10,
+    "UserId": 3,
     "TrackId": 13,
-    "ListenLater": 0,
-    "Discovered": 1
-  },
-  {
-    "UserId": 11,
-    "TrackId": 14,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 12,
+    "UserId": 4,
+    "TrackId": 14,
+    "ListenLater": 0,
+    "Discovered": 1
+  },
+  {
+    "UserId": 4,
     "TrackId": 15,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 13,
+    "UserId": 4,
     "TrackId": 16,
-    "ListenLater": 1,
-    "Discovered": 0
+    "ListenLater": 0,
+    "Discovered": 1
   },
   {
-    "UserId": 14,
+    "UserId": 4,
     "TrackId": 17,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 15,
+    "UserId": 4,
     "TrackId": 18,
-    "ListenLater": 1,
-    "Discovered": 0
+    "ListenLater": 0,
+    "Discovered": 1
   },
   {
-    "UserId": 16,
+    "UserId": 4,
     "TrackId": 19,
-    "ListenLater": 0,
-    "Discovered": 1
-  },
-  {
-    "UserId": 17,
-    "TrackId": 20,
-    "ListenLater": 1,
-    "Discovered": 0
-  },
-  {
-    "UserId": 18,
-    "TrackId": 21,
-    "ListenLater": 0,
-    "Discovered": 1
-  },
-  {
-    "UserId": 19,
-    "TrackId": 22,
-    "ListenLater": 1,
-    "Discovered": 0
-  },
-  {
-    "UserId": 20,
-    "TrackId": 23,
     "ListenLater": 0,
     "Discovered": 1
   }
 ]
+   
+
+
+// curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/trackdata/adduser

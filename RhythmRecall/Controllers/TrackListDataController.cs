@@ -1,10 +1,14 @@
-﻿using RhythmRecall.Models;
+﻿using RhythmRecall.Migrations;
+using RhythmRecall.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
+using System.Web.Http.Description;
 
 namespace RhythmRecall.Controllers
 {
@@ -41,6 +45,7 @@ namespace RhythmRecall.Controllers
         // get list of listen later song
 
         [HttpGet]
+        [ResponseType(typeof(TrackList))]
         [Route("api/TrackListData/GetListenLaterList/{userId}")]
 
         public IHttpActionResult GetListenLaterList(int userId)
@@ -60,9 +65,18 @@ namespace RhythmRecall.Controllers
             List<TrackList> tracklist =  db.TrackLists.Where(
 
                     tl => tl.UserId == userId
+            ).ToList();
 
-                ).ToList();
+            Debug.WriteLine("------" + tracklist.GetType() + "------");
 
+
+            foreach (var track in tracklist)
+            {
+
+                Debug.WriteLine("------" + track.Userss.Username + "------");
+
+                Debug.WriteLine("------" + track.Tracks.Title + "------");
+            }
 
 
             return Ok(tracklist);

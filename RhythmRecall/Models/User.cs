@@ -8,7 +8,7 @@ namespace RhythmRecall.Models
 {
     public class User
     {
-        /*       Table User {
+        /*    Table User {
               UserID int [pk]
               Username varchar
               Email varchar
