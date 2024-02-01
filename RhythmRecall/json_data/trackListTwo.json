@@ -1,0 +1,9 @@
+{
+  "UserId": 1,
+  "TrackId": 4,
+  "ListenLater": 1,
+  "Discovered": 0
+}
+
+// got to path, open cmd, execute below command
+// curl -H "Content-Type:application/json" -d @trackListTwo.json https://localhost:44387/api/TrackListDatax/AddToListenLater

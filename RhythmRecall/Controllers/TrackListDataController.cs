@@ -20,7 +20,7 @@ namespace RhythmRecall.Controllers
         [HttpPost]
         [Route("api/TrackListDatax/AddToListenLater")]
 
-        public IHttpActionResult AddToListenLater(TrackList tracklist)
+        public IHttpActionResult AddToListenLater(List<TrackList> tracklists)
         {
 
             if( !ModelState.IsValid )
@@ -28,9 +28,14 @@ namespace RhythmRecall.Controllers
                 return BadRequest(ModelState);
             }
 
+            foreach(var tracklist in tracklists)
+            {
+                db.TrackLists.Add(tracklist);
+            }
+  
+            db.SaveChanges();
 
-
-            return Ok("Execute when user wants to add song to listen later");
+            return Ok();
         }
 
     }
