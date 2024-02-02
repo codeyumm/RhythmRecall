@@ -148,14 +148,53 @@ namespace RhythmRecall.Controllers
           
         }
 
+   
+        // remove song from listen later list
+        // check if song exist in listen later list for a particular user or  not if exist move further
+        // else send an error message
+        // if req is valid remove song from listen later list
 
+        [HttpPost]
+        [Route("api/TrackListData/removeFromListenLater/{userId}/{trackId}")]
 
+        public IHttpActionResult RemoveFromListenLater(int userId, int trackId)
+        {
 
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            // QUERY -> Find a record which has userId, trackId and it should have listen later == 1
+            // SingleOrDefault - either return one element or default vaue if result is null
+            // here we are sure that we will recieve either one row or null so we can use SingleOrDefault
 
+                                                            // turnary function returns true if record exist or false if it doesn't exist
+            TrackList tracklist = db.TrackLists.Where(user => user.UserId == userId)
+                                                .Where(track => track.TrackId == trackId)
+                                                .Where(listenLater => listenLater.ListenLater == 1).SingleOrDefault();
 
+            if ( tracklist != null  )
+            {
 
+                Debug.WriteLine("remove from list");
 
+                // remove from list
+                db.TrackLists.Remove(tracklist);
+                db.SaveChanges();
+
+            } 
+            else
+            {
+                // send error message
+                Debug.WriteLine("can't remove from list");
+
+                return BadRequest("Can't remove from list");
+
+            }
+
+            return Ok($" User {userId} wants to remove track {trackId} from lsiten later list, is operation valid? {tracklist} ---");
+        }
 
 
 
