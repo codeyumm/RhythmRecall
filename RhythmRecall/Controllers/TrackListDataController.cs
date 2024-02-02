@@ -20,7 +20,7 @@ namespace RhythmRecall.Controllers
 
         // define route here
 
-        // add song to listen later
+        // add songs to listen later
 
         [HttpPost]
         [Route("api/TrackListDatax/AddToListenLater")]
@@ -120,19 +120,32 @@ namespace RhythmRecall.Controllers
             bool isAlreadyAdded = ( db.TrackLists.Where(track => track.TrackId == trackId).
                                                 Where( user => user.UserId == userId).Count() == 1 ) ? true : false;
 
-            // if track exist and it not in user's listen later list
-            // add that song to list
+            // if track exist and it is not in user's listen later list add that song to list
+            // else send an error message
 
             if( isTrackExist && !isAlreadyAdded)
             {
                 Debug.WriteLine("You are good to go");
+
+                // make a object of TrackList and assign values
+                TrackList tracklist = new TrackList();
+
+                tracklist.UserId = userId;
+                tracklist.TrackId = trackId;
+                tracklist.ListenLater = 1;
+                tracklist.Discovered = 0;
+
+                db.TrackLists.Add(tracklist);
+                db.SaveChanges();
+
+                return Ok();
+
             } else
             {
                 Debug.WriteLine("There is some error");
+                return BadRequest("There were some error");
             }
-
-
-            return Ok("To add song in listen later list");
+          
         }
 
 
