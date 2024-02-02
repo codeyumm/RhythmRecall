@@ -20,6 +20,9 @@ namespace RhythmRecall.Controllers
 
         // define route here
 
+
+        // --- API's for listen later list 
+
         // add songs to listen later
 
         [HttpPost]
@@ -169,7 +172,7 @@ namespace RhythmRecall.Controllers
             // SingleOrDefault - either return one element or default vaue if result is null
             // here we are sure that we will recieve either one row or null so we can use SingleOrDefault
 
-                                                            // turnary function returns true if record exist or false if it doesn't exist
+                                                           
             TrackList tracklist = db.TrackLists.Where(user => user.UserId == userId)
                                                 .Where(track => track.TrackId == trackId)
                                                 .Where(listenLater => listenLater.ListenLater == 1).SingleOrDefault();
@@ -202,7 +205,7 @@ namespace RhythmRecall.Controllers
 
 
 
-
+        // --- API's for discoverd list
 
 
         // get list of discoverd song
@@ -257,6 +260,76 @@ namespace RhythmRecall.Controllers
 
 
             return Ok(dsicovedList);
+        }
+
+
+        // add song to discoverd list
+        // we will need trackId, UserId
+        // before addig we have to check that
+        // if song and user exist or not and if user already has that song in discoverd list
+        // send some error message . .
+        // else
+        // add that song to discoverd list
+
+        [HttpPost]
+        [Route("api/TrackListData/AddToDiscoverdList/{userId}/{trackId}")]
+
+        public IHttpActionResult AddToDiscoverdList(int userId, int trackId)
+        {
+
+            // check track with trackId from request exist or not
+            // get track with trackId
+            // if the query returns 1 track exist if it returns 0 track doesn't exist
+                                              // turnary operator returns true if record exists or false
+            bool isTrackExist = (db.Tracks.Where(t => t.Id == trackId).Count() == 1) ? true : false;
+
+
+            // check if user already have the trak in thier discoverd list or not
+                                            // turnary operator returns true if record exists or false
+            bool isInDiscoverdList = (db.TrackLists.Where(track => track.TrackId == trackId)
+                                                .Where(user => user.UserId == userId)
+                                                .Where(dList => dList.Discovered == 1).Count() == 1) ? true : false;
+
+            // check if user already have the trak in thier listen later list or not
+                                            // turnary operator returns true if record exists or false
+            bool IsInListenLaterList = (db.TrackLists.Where(track => track.TrackId == trackId)
+                                                .Where(user => user.UserId == userId)
+                                                .Where(lList => lList.ListenLater == 1).Count() == 1) ? true : false;
+
+
+            // at this point there are four possiblity
+            // 1. track doesnt exist in database -> send message to user
+            // 2. track exist -> track is already in discoverd list -> send message to user
+            // 3. track exist -> track is in listen later list -> update track status in tracklist to listen later = 0 and discoverd = 1
+            // 4. track exist -> track is not in both list -> add tracklist to tracklists database with discoverd = 1 and listen later = 0
+
+            if (isTrackExist)
+            {
+                Debug.WriteLine("Given track is in Track database");
+
+
+
+                // make a object of TrackList and assign values
+                TrackList tracklist = new TrackList();
+
+                tracklist.UserId = userId;
+                tracklist.TrackId = trackId;
+                tracklist.ListenLater = 1;
+                tracklist.Discovered = 0;
+
+                db.TrackLists.Add(tracklist);
+                db.SaveChanges();
+
+                return Ok();
+
+            }
+            else
+            {
+                Debug.WriteLine("There is some error");
+
+                return BadRequest("There were some error");
+            }
+
         }
 
 
