@@ -9,7 +9,7 @@
 - api method to add discoverd songs of user - done ✅
 
 - api method to delete song from listen later list of user - done ✅
-- api method to delete  songs from discoverd list of user - DOING
+- api method to delete  songs from discoverd list of user - done ✅
 
 
 - login/signup - DO
