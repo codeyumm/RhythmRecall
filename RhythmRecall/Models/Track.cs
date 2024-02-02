@@ -36,6 +36,9 @@ Table Track
 
         // TrackList can have many tracks
         public ICollection<TrackList> TrackLists { get; set;}
+
+        // Reviews can have many tracks
+        public ICollection<Review> Reviews { get; set; }
     }
 
     // DTO stands for data tranfer object

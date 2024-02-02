@@ -213,10 +213,19 @@
     <Compile Include="Migrations\202401302232048_add-test.designer.cs">
       <DependentUpon>202401302232048_add-test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402022350022_review-entity.cs" />
+    <Compile Include="Migrations\202402022350022_review-entity.designer.cs">
+      <DependentUpon>202402022350022_review-entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402022352216_removed-extra-prop.cs" />
+    <Compile Include="Migrations\202402022352216_removed-extra-prop.designer.cs">
+      <DependentUpon>202402022352216_removed-extra-prop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\Track.cs" />
     <Compile Include="Models\TrackList.cs" />
@@ -346,6 +355,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401302232048_add-test.resx">
       <DependentUpon>202401302232048_add-test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402022350022_review-entity.resx">
+      <DependentUpon>202402022350022_review-entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402022352216_removed-extra-prop.resx">
+      <DependentUpon>202402022352216_removed-extra-prop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

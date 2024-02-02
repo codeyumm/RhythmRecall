@@ -27,5 +27,9 @@ namespace RhythmRecall.Models
         // TrackList can have many users
         public ICollection<TrackList> TrackLists { get; set; }
 
+        // Reviews can have many users
+        public ICollection<Review> Reviews { get; set; }
+
+
     }
 }
