@@ -217,7 +217,7 @@ namespace RhythmRecall.Controllers
         public IHttpActionResult GetDiscoverdList(int userId)
         {
 
-            // check if model state is valid or not
+ 
             if (!ModelState.IsValid)
             {
 
@@ -225,7 +225,7 @@ namespace RhythmRecall.Controllers
 
             }
 
-            // if data is valid
+  
             // get listen later list of user accordin to userId and listen later should be false and discovered should be true
 
             List<TrackList> tracklist = db.TrackLists.Where(tl => tl.UserId == userId)
@@ -292,9 +292,12 @@ namespace RhythmRecall.Controllers
 
             // check if user already have the trak in thier listen later list or not
                                             // turnary operator returns true if record exists or false
-            bool IsInListenLaterList = (db.TrackLists.Where(track => track.TrackId == trackId)
+            bool isInListenLaterList = (db.TrackLists.Where(track => track.TrackId == trackId)
                                                 .Where(user => user.UserId == userId)
                                                 .Where(lList => lList.ListenLater == 1).Count() == 1) ? true : false;
+
+
+            Debug.WriteLine( $"User want to add {trackId} track, \n is it in Discoverdlist? {isInDiscoverdList} \n is It in listen later list? {isInListenLaterList} \n ----" );
 
 
             // at this point there are four possiblity
@@ -305,22 +308,43 @@ namespace RhythmRecall.Controllers
 
             if (isTrackExist)
             {
+
                 Debug.WriteLine("Given track is in Track database");
 
+                if (isInListenLaterList) {
 
+                    TrackList tracklist = db.TrackLists.Where(user => user.UserId == userId).Where( track => track.TrackId == trackId).SingleOrDefault();
 
-                // make a object of TrackList and assign values
-                TrackList tracklist = new TrackList();
+                    tracklist.ListenLater = 0;
+                    tracklist.Discovered = 1;
+                    db.Entry(tracklist).State = EntityState.Modified;
+                    db.SaveChanges();
 
-                tracklist.UserId = userId;
-                tracklist.TrackId = trackId;
-                tracklist.ListenLater = 1;
-                tracklist.Discovered = 0;
+                    return Ok("Song added to discoverd list");
 
-                db.TrackLists.Add(tracklist);
-                db.SaveChanges();
+                } 
+                else if(isInDiscoverdList)
+                {
 
-                return Ok();
+                    return Ok("Song is already in discoverd list");
+
+                } 
+                else if( !isInDiscoverdList && !isInListenLaterList)
+                {
+
+                    TrackList tracklist = new TrackList();
+                    tracklist.TrackId = trackId;
+                    tracklist.UserId = userId;
+                    tracklist.ListenLater = 0;
+                    tracklist.Discovered = 1;
+
+                    db.TrackLists.Add(tracklist);
+                    db.SaveChanges();
+
+                    return Ok("Song added to discoverd list");
+                }
+
+                return BadRequest("There were some error");
 
             }
             else
