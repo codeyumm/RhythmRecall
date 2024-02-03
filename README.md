@@ -14,9 +14,9 @@
 - make model of Review entity - done ✅
 
 - api method to view a review of a song -  done ✅
-- api method to write a review of a song - DOIN 🎯
+- api method to write a review of a song - done ✅
+- api method to update a review of a song - DOIN 🎯
 - api method to delete a review of a song - DO 🗨
-- api method to update a review of a song - DO 🗨
 - api method to view all reviews of user - DO 🗨
 
 - login/signup - DO 🗨
