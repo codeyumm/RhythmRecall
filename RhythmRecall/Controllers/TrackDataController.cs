@@ -111,10 +111,9 @@ namespace RhythmRecall.Controllers
             try
             {
                 db.SaveChanges();
-
             } catch(DbUpdateConcurrencyException)
             {
-
+   
                 throw;
 
             }
