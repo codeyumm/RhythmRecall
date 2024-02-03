@@ -115,5 +115,47 @@ namespace RhythmRecall.Controllers
             return Ok("this api will add a review in database");
         }
 
+
+        // to delete review
+        [HttpPost]
+        [Route("api/ReviewData/RemoveReview/{userId}/{reviewId}")]
+
+        public IHttpActionResult RemoveReview(int userId, int reviewId)
+        {
+
+            // check user exist or not
+            bool isUserExist = (db.Userss.Find(userId) != null) ? true : false;
+
+            if( !isUserExist )
+            {
+                return BadRequest("Given user is not in database");
+            }
+
+
+            // check user has any review with given reviewId or not
+            Review review = db.Reviews.Where(user => user.UserId == userId)
+                                             .Where(r => r.Id == reviewId).SingleOrDefault();
+
+            if( review != null )
+            {
+                // remove review from database
+                db.Reviews.Remove(review);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+
+                    return BadRequest("There was some problem while updating database");
+                }
+
+                return Ok("Review delted");
+            }
+
+            // review doesn't exist
+            return BadRequest($"There is no review found with id {reviewId} from user {userId}");
+        }
+
     }
 }

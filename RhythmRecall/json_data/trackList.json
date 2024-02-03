@@ -1,216 +1,216 @@
 [
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 4,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 5,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 6,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 7,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 8,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 9,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 10,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 11,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 12,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 37,
+    "UserId": 18,
     "TrackId": 13,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 14,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 15,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 16,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 17,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 18,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 19,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 20,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 1,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 2,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 38,
+    "UserId": 12,
     "TrackId": 3,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 4,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 5,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 6,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 7,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 8,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 9,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 10,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 11,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 12,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 54,
+    "UserId": 3,
     "TrackId": 13,
     "ListenLater": 1,
     "Discovered": 0
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 14,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 15,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 16,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 17,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 18,
     "ListenLater": 0,
     "Discovered": 1
   },
   {
-    "UserId": 55,
+    "UserId": 6,
     "TrackId": 19,
     "ListenLater": 0,
     "Discovered": 1
@@ -220,4 +220,4 @@
    
 
 
-// curl -H "Content-Type:application/json" -d @trackList.json https://localhost:44387/api/tracklistdatax/AddToListenLater
+// curl -H "Content-Type:application/json" -d @trackList.json https://localhost:44127/api/tracklistdatax/AddToListenLater
