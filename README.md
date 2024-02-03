@@ -15,8 +15,8 @@
 
 - api method to view a review of a song -  done ✅
 - api method to write a review of a song - done ✅
-- api method to update a review of a song - DOING 🎯
-- api method to delete a review of a song - DO 🗨
+- api method to update a review of a song - done ✅
+- api method to delete a review of a song - DOING 🎯
 - api method to view all reviews of user - DO 🗨
 
 - login/signup - DO 🗨
