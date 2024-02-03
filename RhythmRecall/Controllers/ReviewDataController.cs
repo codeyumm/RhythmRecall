@@ -82,35 +82,35 @@ namespace RhythmRecall.Controllers
                                           .Where(track => track.TrackId == review.TrackId)
                                           .SingleOrDefault();
 
-            if( userReview != null)
+           
+            if ( userReview != null)
             {
+                // we can't add the review that we recieve from parameter because it doen't contain ID of review
+                // set new content
+                userReview.Title = review.Title;
+                userReview.Content = review.Content;
+
                 // update to database
                 db.Entry(userReview).State = EntityState.Modified;
-                Debug.WriteLine($"------------ {userReview.Title}---------------");
-
+      
                 try
                 {
                     db.SaveChanges();
-                    Debug.WriteLine("---- In try catch block");
-
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-
-                    Debug.WriteLine("----  catch block");
-
                     throw;
                 }
 
-                return Ok(" Update it");
+                return Ok("Review updated");
             }
 
-            Debug.WriteLine("--------y7587----45y28bfrw47-----");
+            // if everything is valid, add review to database
             db.Reviews.Add(review);
             db.SaveChanges();
 
 
-            // if everything is valid, add review to database
+
 
             return Ok("this api will add a review in database");
         }
