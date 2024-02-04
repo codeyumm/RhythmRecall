@@ -157,5 +157,66 @@ namespace RhythmRecall.Controllers
             return BadRequest($"There is no review found with id {reviewId} from user {userId}");
         }
 
+
+
+        // to edit review
+        [HttpPost]
+        [Route("api/ReviewData/EditReview/{userId}/{reviewId}")]
+
+        public IHttpActionResult EditReview(int userId, int reviewId, Review updatedReview)
+        {
+
+            // check user exist or not
+            bool isUserExist = (db.Userss.Find(userId) != null) ? true : false;
+
+            if( !isUserExist )
+            {
+                return BadRequest("Given user is not in database");
+            }
+
+
+            // check reviewId and review.id is not mismatched
+            if( reviewId != updatedReview.Id)
+            {
+                return BadRequest("ID Mismatched");
+
+            }
+
+            // check user has any review with given reviewId or not
+            Review review = db.Reviews.Where(user => user.UserId == userId)
+                                             .Where(r => r.Id == reviewId)
+                                             .Where(track => track.TrackId == updatedReview.TrackId).SingleOrDefault();
+
+
+            if (review != null)
+            {
+
+                review.Title = updatedReview.Title;
+                review.Content = updatedReview.Content;
+
+
+                // I was getting some error while using db.Entry(review).State = EntityState.Modified
+                db.Reviews.Attach(review);
+                db.Entry(review).State = EntityState.Modified;
+                db.SaveChanges();
+
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateException)
+                {
+                    return BadRequest("There was some problem while updating database");
+                }
+
+                return Ok("Review updated");
+            }
+
+
+            return BadRequest("There was some problem");
+        }
+
+
     }
 }
