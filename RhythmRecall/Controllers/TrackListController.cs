@@ -39,6 +39,19 @@ namespace RhythmRecall.Controllers
             // send list of tracklistdto to view to display on webpage
             return View(tracks);
         }
+
+
+        // GET: TrackList/ListenLater/RemoveFromListenLater/userId/trackId
+
+        [HttpGet]
+
+        public ActionResult RemoveFromListenLater(int userId, int trackId)
+        {
+
+            Debug.WriteLine(userId + " ---- -- --- -- -" + trackId);
+
+            return View();
+        }
         
     }
 }

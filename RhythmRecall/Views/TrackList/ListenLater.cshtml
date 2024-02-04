@@ -24,14 +24,12 @@ else
     <div class="container">
         <h5> @track.Title By @track.Artist </h5>
 
-        <form method="post" action="/TrackList/RemoveFromListenLater">
-
-            <input type="hidden" name="userId" value="@track.UserId" />
-               
-             <input type="submit" value="Remove"/>
+        <form method="get" action="/TrackList/RemoveFromListenLater">
+            <input type="submit" value="Remove" />
         </form>
 
 
-</div>
+    </div>
 
 }
+
