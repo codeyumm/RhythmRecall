@@ -1,0 +1,18 @@
+﻿@model IEnumerable<RhythmRecall.Models.TrackListDto>
+
+
+@{
+    ViewBag.Title = "ListenLater";
+}
+
+<h2>ListenLater list will be shown here</h2>
+
+<h1>Model</h1>
+
+@foreach ( var track in Model)
+            {
+                 <h1>ha moj</h1>
+                <h1> @track.Title </h1>
+                <h1> @track.Username </h1>
+                <h1> @track.Id </h1>
+            }

@@ -95,7 +95,6 @@ namespace RhythmRecall.Controllers
                 });
             }
 
-
             return Ok(listenLaterList);
         }
 
