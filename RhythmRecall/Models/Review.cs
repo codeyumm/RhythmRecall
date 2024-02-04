@@ -35,7 +35,22 @@ namespace RhythmRecall.Models
 
         public string Content { get; set; }
 
+    }
 
+    public class ReviewDto
+    {
+
+        public int Id { get; set; }
+
+        public int TrackId { get; set; }
+
+        public string TrackTitle { get; set; }
+
+        public int UserId { get; set; }
+
+        public string Title { get; set; }
+
+        public string Content { get; set; }
 
 
 

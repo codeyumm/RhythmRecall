@@ -195,7 +195,7 @@ namespace RhythmRecall.Controllers
                 review.Content = updatedReview.Content;
 
 
-                // I was getting some error while using db.Entry(review).State = EntityState.Modified
+                // Was getting some error while using db.Entry(review).State = EntityState.Modified
                 db.Reviews.Attach(review);
                 db.Entry(review).State = EntityState.Modified;
                 db.SaveChanges();
@@ -215,6 +215,49 @@ namespace RhythmRecall.Controllers
 
 
             return BadRequest("There was some problem");
+        }
+
+
+        // get all reviews of given user id
+
+        [HttpPost]
+        [Route("api/ReviewData/GetUserReviews/{userId}")]
+
+        public IHttpActionResult GetUserReviews(int userId)
+        {
+
+            // check user exist or not
+            bool isUserExist = (db.Userss.Find(userId) != null) ? true : false;
+
+            if (!isUserExist)
+            {
+                return BadRequest("Given user is not in database");
+            }
+
+            // get reviews of user based on userId
+            List<Review> userReviews = db.Reviews.Where(user => user.UserId == userId).ToList();
+
+            // to store multiple dto objects
+            List<ReviewDto> userReviewsDto = new List<ReviewDto>() { };
+
+            // assign value to reviewdto and add it to list
+            foreach( var review in userReviews)
+            {
+                userReviewsDto.Add( new ReviewDto() 
+                { 
+                
+                    Id = review.Id,
+                    TrackId = review.TrackId,
+                    TrackTitle = review.Tracks.Title,
+                    UserId = review.UserId,
+                    Title = review.Title,
+                    Content = review.Content
+
+                });
+
+            }
+
+            return Ok(userReviewsDto);
         }
 
 

@@ -1,8 +1,153 @@
 {
-  "TrackId": 3,
-  "UserId": 6,
-  "Title": "Emiway's best?'",
-  "Content": "Beautiful lyrics......"
+  "Id": 18,
+  "TrackId": 20,
+  "UserId": 13,
+  "Title": "Harmonic Bliss",
+  "Content": "Perfect blend of instruments."
 }
 
 // curl -H "Content-Type:application/json" -d @review.json https://localhost:44387/api/reviewdata/addreview
+
+
+/* [
+  {
+    "Id": 1,
+    "TrackId": 7,
+    "UserId": 13,
+    "Title": "Groovy Vibes",
+    "Content": "This track is so catchy!"
+  },
+  {
+    "Id": 2,
+    "TrackId": 14,
+    "UserId": 5,
+    "Title": "Epic Melody",
+    "Content": "Absolutely love the composition!"
+  },
+  {
+    "Id": 3,
+    "TrackId": 12,
+    "UserId": 18,
+    "Title": "Soothing Harmony",
+    "Content": "Perfect for relaxation."
+  },
+  {
+    "Id": 4,
+    "TrackId": 2,
+    "UserId": 7,
+    "Title": "Energy Booster",
+    "Content": "Gets me pumped up every time!"
+  },
+  {
+    "Id": 5,
+    "TrackId": 19,
+    "UserId": 11,
+    "Title": "Incredible Lyrics",
+    "Content": "The lyrics are so profound."
+  },
+  {
+    "Id": 6,
+    "TrackId": 6,
+    "UserId": 20,
+    "Title": "Magical Composition",
+    "Content": "Captivating from start to finish."
+  },
+  {
+    "Id": 7,
+    "TrackId": 5,
+    "UserId": 14,
+    "Title": "Addictive Beat",
+    "Content": "Can't stop listening!"
+  },
+  {
+    "Id": 8,
+    "TrackId": 11,
+    "UserId": 3,
+    "Title": "Emotional Journey",
+    "Content": "Touches the heart deeply."
+  },
+  {
+    "Id": 9,
+    "TrackId": 10,
+    "UserId": 17,
+    "Title": "Funky Groove",
+    "Content": "Makes me want to dance!"
+  },
+  {
+    "Id": 10,
+    "TrackId": 16,
+    "UserId": 9,
+    "Title": "Captivating Rhythm",
+    "Content": "Keeps me hooked throughout."
+  },
+  {
+    "Id": 11,
+    "TrackId": 8,
+    "UserId": 15,
+    "Title": "Soulful Experience",
+    "Content": "A journey for the soul."
+  },
+  {
+    "Id": 12,
+    "TrackId": 1,
+    "UserId": 6,
+    "Title": "Mooro Magic",
+    "Content": "Alvida hits different."
+  },
+  {
+    "Id": 13,
+    "TrackId": 4,
+    "UserId": 19,
+    "Title": "Ethereal Melody",
+    "Content": "Transports me to another world."
+  },
+  {
+    "Id": 14,
+    "TrackId": 18,
+    "UserId": 8,
+    "Title": "Dynamic Harmony",
+    "Content": "The dynamics are mind-blowing."
+  },
+  {
+    "Id": 15,
+    "TrackId": 15,
+    "UserId": 2,
+    "Title": "Lyrical Brilliance",
+    "Content": "The lyrics are pure poetry."
+  },
+  {
+    "Id": 16,
+    "TrackId": 13,
+    "UserId": 12,
+    "Title": "Epic Journey",
+    "Content": "A musical adventure!"
+  },
+  {
+    "Id": 17,
+    "TrackId": 9,
+    "UserId": 1,
+    "Title": "Addictive Melody",
+    "Content": "Can't get enough of this tune."
+  },
+  {
+    "Id": 18,
+    "TrackId": 20,
+    "UserId": 10,
+    "Title": "Harmonic Bliss",
+    "Content": "Perfect blend of instruments."
+  },
+  {
+    "Id": 19,
+    "TrackId": 17,
+    "UserId": 16,
+    "Title": "Soulful Vibes",
+    "Content": "Touches the soul deeply."
+  },
+  {
+    "Id": 20,
+    "TrackId": 3,
+    "UserId": 4,
+    "Title": "Energetic Beats",
+    "Content": "Gets the adrenaline pumping!"
+  }
+] */
