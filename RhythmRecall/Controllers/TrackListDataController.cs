@@ -90,8 +90,10 @@ namespace RhythmRecall.Controllers
                 {
                     Id = track.TrackId,
                     Title = track.Tracks.Title,
-                    Username = track.Userss.Username
-
+                    Username = track.Userss.Username,
+                    Artist = track.Tracks.Artist,
+                    UserId = track.Userss.Id,
+                    TrackId = track.Tracks.Id
                 });
             }
 
