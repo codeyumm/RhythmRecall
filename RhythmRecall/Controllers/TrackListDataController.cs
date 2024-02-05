@@ -124,35 +124,69 @@ namespace RhythmRecall.Controllers
             bool isAlreadyAdded = ( db.TrackLists.Where(track => track.TrackId == trackId).
                                                 Where( user => user.UserId == userId).Count() == 1 ) ? true : false;
 
+
+            // check if user already have the trak in thier discoverd list or not
+            // turnary operator returns true if record exists or false
+            bool isInDiscoverdList = (db.TrackLists.Where(track => track.TrackId == trackId)
+                                                .Where(user => user.UserId == userId)
+                                                .Where(dList => dList.Discovered == 1).Count() == 1) ? true : false;
+
             // if track exist and it is not in user's listen later list add that song to list
             // else send an error message
 
-            if( isTrackExist && !isAlreadyAdded)
+            Debug.WriteLine(" is track exist : " + isTrackExist);
+            Debug.WriteLine(" is track added : " + isAlreadyAdded);
+
+
+            // at this point there are four possiblity
+            // 1. track doesnt exist in database -> send message to user
+            // 2. track exist -> track is already in listen later list -> send message to user
+            // 3. track exist -> track is in discoverd list -> update track status in tracklist to listen later = 1 and discoverd = 0
+            // 4. track exist -> track is not in both list -> add tracklist to tracklists database with discoverd = 0 and listen later = 1
+
+            if( isTrackExist)
             {
-                Debug.WriteLine("You are good to go");
+                Debug.WriteLine("Given track is in database");
 
-                // make a object of TrackList and assign values
-                TrackList tracklist = new TrackList();
+                // when i'ts a new track entry in list
+                if( !isAlreadyAdded && !isInDiscoverdList )
+                {
+                    TrackList tracklist = new TrackList();
+                    tracklist.UserId = userId;
+                    tracklist.TrackId = trackId;
+                    tracklist.Discovered = 0;
+                    tracklist.ListenLater = 1;
+                }
+                else if( isInDiscoverdList ) // if track is in discoverd list
+                {
+                    // get the track and change the value of discoverd and listen later
+                    TrackList tracklist = db.TrackLists.Where(user => user.UserId == userId)
+                                                        .Where(track => track.TrackId == trackId).SingleOrDefault();
 
-                tracklist.UserId = userId;
-                tracklist.TrackId = trackId;
-                tracklist.ListenLater = 1;
-                tracklist.Discovered = 0;
+                    tracklist.Discovered = 0;
+                    tracklist.ListenLater = 1;
 
-                db.TrackLists.Add(tracklist);
-                db.SaveChanges();
+                    // update in database
+                    db.Entry(tracklist).State = EntityState.Modified;
+                    db.SaveChanges();
 
-                return Ok();
+                } else if( isAlreadyAdded)
+                {
+                    return BadRequest("Track is already in listen later list");
+                }
 
-            } else
+                return BadRequest("There was some error");
+            } 
+            else
             {
-                Debug.WriteLine("There is some error");
-                return BadRequest("There were some error");
+                Debug.Write("There was some error");
+                return BadRequest("There was some error");
             }
-          
+
+
         }
 
-   
+
         // remove song from listen later list
         // check if song exist in listen later list for a particular user or  not if exist move further
         // else send an error message

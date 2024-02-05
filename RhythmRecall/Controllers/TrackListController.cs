@@ -25,8 +25,6 @@ namespace RhythmRecall.Controllers
         }
 
 
-
-
         // GET: TrackList/ListenLater/{id}
         // here id is id of user
 
@@ -99,7 +97,6 @@ namespace RhythmRecall.Controllers
             }
 
 
-
             // store var in temp data to send it in another controller
             TempData["isAddedToListenLater"] = isAddedToListenLater;
 
@@ -119,8 +116,6 @@ namespace RhythmRecall.Controllers
 
         public ActionResult RemoveFromListenLater(int userId, int trackId)
         {
-
- 
 
             // we need object of HttpClient to use http methods
             HttpClient client = new HttpClient();
@@ -155,6 +150,42 @@ namespace RhythmRecall.Controllers
         }
 
 
+        // ---------------------------------
+        //  Controllers for discoverd list
+        // --------------------------------
+
+
+
+        // GET: TrackList/DiscoverdList/{userId}
+        // to get a list of discoverd song
+        [HttpGet]
+
+        public ActionResult Discoverd(int id)
+        {
+            // we need object of HttpClient to use http methods
+            HttpClient client = new HttpClient();
+
+            // setting up url to call api
+            string url = $"{baseUrl}/GetDiscoverdList/{id}";
+
+            // send request on url store result as res
+            HttpResponseMessage res = client.GetAsync(url).Result;
+
+            // as we are getting response as list of tracklistdto saving it in list of tracklistdto
+            IEnumerable<TrackListDto> tracks = res.Content.ReadAsAsync<IEnumerable<TrackListDto>>().Result;
+
+            // when redirecting from RemoveFromListenLater we want to display a message
+
+            bool isTrackDeleted = TempData["isTrackDeleted"] as bool? ?? false;
+            bool isAddedToDiscoverd = TempData["isAddedToDiscoverd"] as bool? ?? false;
+
+            ViewBag.isTrackDeleted = isTrackDeleted;
+            ViewBag.isAddedToDiscoverd = isAddedToDiscoverd;
+
+            // send list of tracklistdto to view to display on webpage
+            return View(tracks);
+
+        }
 
 
         // GET: TrackList/AddToDiscoverdList/{userId}/{trackId}
@@ -197,40 +228,17 @@ namespace RhythmRecall.Controllers
 
         }
 
-
-
-
-
-        // GET: TrackList/DiscoverdList/{userId}
-        // to get a list of discoverd song
-        [HttpGet]
-
-        public ActionResult Discoverd(int id)
+        public ActionResult RemoveFromDiscoverd(int userId, int trackId)
         {
-            // we need object of HttpClient to use http methods
-            HttpClient client = new HttpClient();
 
-            // setting up url to call api
-            string url = $"{baseUrl}/GetDiscoverdList/{id}";
-
-            // send request on url store result as res
-            HttpResponseMessage res = client.GetAsync(url).Result;
-
-            // as we are getting response as list of tracklistdto saving it in list of tracklistdto
-            IEnumerable<TrackListDto> tracks = res.Content.ReadAsAsync<IEnumerable<TrackListDto>>().Result;
-
-            // when redirecting from RemoveFromListenLater we want to display a message
-
-            bool isTrackDeleted = TempData["isTrackDeleted"] as bool? ?? false;
-            bool isAddedToDiscoverd = TempData["isAddedToDiscoverd"] as bool? ?? false;
-
-            ViewBag.isTrackDeleted = isTrackDeleted;
-            ViewBag.isAddedToDiscoverd = isAddedToDiscoverd;
-
-            // send list of tracklistdto to view to display on webpage
-            return View(tracks);
-
+            return Redirect($"Discoverd/{userId}");
         }
+
+
+
+
+
+
 
 
 
