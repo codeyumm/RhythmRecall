@@ -5,18 +5,17 @@
     ViewBag.Title = "ListenLater";
     bool? isTrackDelted = ViewBag.isTrackDeleted;
     bool? isTrackAddedInDiscoverd = ViewBag.isAddedToDiscoverd;
-    bool? isAddedToListenLater = ViewBag.isAddedToListenLater;
 }
 
 
 
 @if (Model.Count() == 0)
 {
-    <h1>You don't have any song in listen later list'</h1>
+    <h1>You don't have any song in Discoverd list</h1>
 }
 else
 {
-    <h1>Listen later list of  @Model.First().Username</h1>
+    <h1>Discoverd list of  @Model.First().Username</h1>
 }
 
 @if (isTrackDelted == true)
@@ -37,25 +36,15 @@ else
 
 }
 
-
-@if (isAddedToListenLater == true)
-{
-
-    <script>
-        alert("Track is added to your listen later list");
-    </script>
-
-}
-
 @foreach (var track in Model)
 {
 
     <div class="track-container">
-        <h5> @track.Title By @track.Artist -- @track.TrackId </h5>
+        <h5> @track.Title By @track.Artist </h5>
 
         <!-- <a href="RemoveFromListenLater/@track.Id">Remove</a> -->
 
-        <form method="post" action="/TrackList/RemoveFromListenLater">
+        <form method="post" action="/TrackList/RemoveFromDiscoverd">
             <input type="hidden" value="@track.UserId" name="userId" />
             <input type="hidden" value="@track.TrackId" name="trackId" />
 
@@ -64,12 +53,12 @@ else
 
         </form>
 
-        <form method="post" action="/TrackList/AddToDiscoverdList">
+        <form method="post" action="/TrackList/AddToListenLater">
             <input type="hidden" value="@track.UserId" name="userId" />
             <input type="hidden" value="@track.TrackId" name="trackId" />
 
 
-            <input type="submit" value="Add to discoverd" />
+            <input type="submit" value="Add to listen later" />
 
         </form>
 

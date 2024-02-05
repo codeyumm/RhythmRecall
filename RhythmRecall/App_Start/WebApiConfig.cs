@@ -26,6 +26,12 @@ namespace RhythmRecall
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Routes.MapHttpRoute(
+            name: "testAPI2",
+            routeTemplate: "api/{controller}/{action}/{userId}/{trackId}",
+            defaults: new { userId = RouteParameter.Optional, trackId = RouteParameter.Optional }
+            );
+
 
 
         }

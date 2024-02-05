@@ -308,6 +308,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\TrackLIst\ListenLater.cshtml" />
     <Content Include="Views\TrackLIst\RemoveFromListenLater.cshtml" />
+    <Content Include="Views\TrackLIst\AddToDiscoverdList.cshtml" />
+    <Content Include="Views\TrackLIst\Discoverd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

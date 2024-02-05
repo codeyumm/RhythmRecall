@@ -163,6 +163,7 @@ namespace RhythmRecall.Controllers
 
         public IHttpActionResult RemoveFromListenLater(int userId, int trackId)
         {
+            Debug.WriteLine("--- removing from list ----");
 
             if (!ModelState.IsValid)
             {
@@ -177,6 +178,8 @@ namespace RhythmRecall.Controllers
             TrackList tracklist = db.TrackLists.Where(user => user.UserId == userId)
                                                 .Where(track => track.TrackId == trackId)
                                                 .Where(listenLater => listenLater.ListenLater == 1).SingleOrDefault();
+
+           
 
             if ( tracklist != null  )
             {
@@ -251,10 +254,11 @@ namespace RhythmRecall.Controllers
                 dsicovedList.Add(new TrackListDto
                 {
                     Id = track.TrackId,
-
                     Title = track.Tracks.Title,
-
-                    Username = track.Userss.Username
+                    Username = track.Userss.Username,
+                    Artist = track.Tracks.Artist,
+                    UserId = track.Userss.Id,
+                    TrackId = track.Tracks.Id
 
                 });
             }

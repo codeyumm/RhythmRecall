@@ -21,7 +21,6 @@ namespace RhythmRecall.Models
         public int TrackId { get; set; }
         public virtual Track Tracks { get; set; }
 
-
         public int ListenLater { get; set; }
 
         public int Discovered { get; set; }
@@ -39,7 +38,6 @@ namespace RhythmRecall.Models
         public int UserId { get; set; }
 
         public int TrackId { get; set; }
-
 
         public string Artist { get; set; }
     }
