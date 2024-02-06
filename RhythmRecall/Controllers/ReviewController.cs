@@ -32,23 +32,24 @@ namespace RhythmRecall.Controllers
             Session["userId"] = userId;
             Session["trackId"] = trackId;
 
+            ViewBag.userId = userId;
+            ViewBag.trackId = trackId;
+
+
             return View();
         }
 
-
         // Controller to add review
-        // GET: Review/Add/{userId}/{trackId}
-        public ActionResult Add(Review review)
+        // GET: Review/Add/{userId}/{trackId}/
+        public ActionResult Add(int userId, int trackId,Review review)
         {
-         
-            // get user and track id from session variable
-            int userId = (int)Session["userId"];
-            int trackId = (int)Session["trackId"];
 
-        
 
-            review.UserId = userId;
-            review.TrackId = trackId;
+
+            Debug.WriteLine("user" + review.UserId);
+            Debug.WriteLine("track" + review.TrackId);
+
+            ;
 
             string jsonpayload = jss.Serialize(review);
 
@@ -60,7 +61,7 @@ namespace RhythmRecall.Controllers
             // set up url tp call api
             string url = $"{baseUrl}AddReview";
 
-            Debug.WriteLine($"url {url}");
+           Debug.WriteLine($"url {url}");
 
 
             // set content and requst type in header
@@ -84,7 +85,7 @@ namespace RhythmRecall.Controllers
             // set isAdded in temp data to access it in view
             TempData["isAdded"] = isAdded;
 
-            return Redirect("Display");
+            return Redirect($"Display?userId={review.UserId}");
         }
 
 
@@ -93,17 +94,67 @@ namespace RhythmRecall.Controllers
         // GET: Review/Edit/{userId}/{reviewId}
         public ActionResult Edit(int userId, int reviewId)
         {
-            // make search controller
 
-            return View();
+ 
+            // call FindReview api to get review and pass it to view
+
+            // HttpClient to access all http method
+            HttpClient client = new HttpClient();
+
+            // url to call API - api/ReviewData/Find/{reviewId}
+
+            string url = $"{baseUrl}/Find/{reviewId}";
+
+            // response to store result from api
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            // store response in reviewDto object
+            ReviewDto reviewDto = response.Content.ReadAsAsync<ReviewDto>().Result;
+
+            Debug.WriteLine($"------ {reviewDto.Title}");
+
+            // pass user and track id Add controller
+            Session["userId"] = userId;
+            Session["trackId"] = reviewDto.TrackId;
+            // pass review to view to diplay it in form
+            return View(reviewDto);
         }
 
 
         // Controller to remove review 
         // GET: Review/Remove/{userId}/{reviewId}
-        public ActionResult Remove()
+        public ActionResult Remove(int userId, int reviewId)
         {
-            return View();
+
+            // client
+            HttpClient client = new HttpClient();
+
+            // API url - https://localhost:44387/api/ReviewData/RemoveReview/{userId}/{reviewId}
+            string url = $"{baseUrl}RemoveReview/{userId}/{reviewId}";
+
+            // send request on url store result as res
+            HttpContent content = new StringContent("");
+
+            // set request content to json
+            content.Headers.ContentType.MediaType = "application/json";
+
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            bool isReviewDeleted;
+
+            if (response.IsSuccessStatusCode)
+            {
+                isReviewDeleted = true;
+            }
+            else
+            {
+                isReviewDeleted = false;
+
+            }
+
+            TempData["isReviewDeleted"] = isReviewDeleted;
+
+            return RedirectToAction("Display", new {  userId = userId });
         }
 
         // Controller to display all reviews by user
@@ -116,7 +167,8 @@ namespace RhythmRecall.Controllers
             // this session variable is coming from add review
             // so, I have to set it when I make controller for view reviews
             // get userid from session variable
-            
+
+
 
             // client object to use httpclient methods
             HttpClient client = new HttpClient();
@@ -124,12 +176,12 @@ namespace RhythmRecall.Controllers
             // url of an api to call
             string url = $"{baseUrl}GetUserReviews/{userId}";
 
-            Debug.WriteLine("API URL - " + url);
+            // Debug.WriteLine("API URL - " + url);
 
             // response object to store result
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            Debug.WriteLine("response : " + response);
+            // Debug.WriteLine("response : " + response);
 
             IEnumerable<ReviewDto> reviews = response.Content.ReadAsAsync<IEnumerable<ReviewDto>>().Result;
 

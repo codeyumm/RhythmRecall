@@ -31,6 +31,14 @@ else
             <input type="submit" value="Edit" />
 
         </form>
+
+
+        <form method="get" action="/Review/Remove">
+            <input type="hidden" name="reviewId" value="@review.Id" />
+            <input type="hidden" name="userId" value="@review.UserId" />
+            <input type="submit" value="Delete" />
+
+        </form>
     </div>
 
 }

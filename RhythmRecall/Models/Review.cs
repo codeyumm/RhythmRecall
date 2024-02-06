@@ -56,4 +56,9 @@ namespace RhythmRecall.Models
 
 
     }
+
+    public class ReviewStatus
+    {
+        public bool alreadyWritten;
+    }
 }

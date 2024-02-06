@@ -62,7 +62,7 @@ namespace RhythmRecall.Controllers
         {
 
 
-            Debug.WriteLine($"----- {review}");
+            Debug.WriteLine($"----- {review.UserId} --- user ID");
 
             // check user exist in database or not
             bool isUserExist = ( db.Userss.Find(review.UserId) != null ) ? true : false;
