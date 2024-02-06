@@ -52,6 +52,7 @@ namespace RhythmRecall.Models
 
         public string Content { get; set; }
 
+        public string Username { get; set; }
 
 
     }

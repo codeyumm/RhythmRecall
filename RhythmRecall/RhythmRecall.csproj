@@ -314,6 +314,7 @@
     <Content Include="Views\Review\New.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Remove.cshtml" />
+    <Content Include="Views\Review\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

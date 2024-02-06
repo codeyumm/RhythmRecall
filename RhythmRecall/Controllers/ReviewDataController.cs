@@ -61,6 +61,9 @@ namespace RhythmRecall.Controllers
         public IHttpActionResult AddReview(Review review)
         {
 
+
+            Debug.WriteLine($"----- {review}");
+
             // check user exist in database or not
             bool isUserExist = ( db.Userss.Find(review.UserId) != null ) ? true : false;
 
@@ -218,9 +221,48 @@ namespace RhythmRecall.Controllers
         }
 
 
+        // find review
+        [HttpGet]
+        [Route("api/ReviewData/Find/{reviewId}")]
+
+        public IHttpActionResult Find(int reviewId)
+        {
+
+            // get review from database based on reivewId
+            Review review = db.Reviews.Find(reviewId);
+
+            // check if review exist or not, if exist return the review else send a message
+            if( review != null)
+            {
+                // make object of reviewdto and set value according to dto
+                ReviewDto reviewDto = new ReviewDto();
+
+                reviewDto.Id = review.Id;
+                reviewDto.Title = review.Title;
+                reviewDto.Content = review.Content;
+                reviewDto.Username = review.Users.Username;
+                reviewDto.TrackTitle = review.Tracks.Title;
+                reviewDto.UserId = review.UserId;
+                reviewDto.TrackId = review.TrackId;
+
+                Debug.WriteLine(reviewDto.Title);
+
+                return Ok(reviewDto);
+            } 
+            else
+            {
+                return BadRequest("No review with given id in database");
+            }
+
+        }
+
+
+
+
+
         // get all reviews of given user id
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/ReviewData/GetUserReviews/{userId}")]
 
         public IHttpActionResult GetUserReviews(int userId)
@@ -251,8 +293,8 @@ namespace RhythmRecall.Controllers
                     TrackTitle = review.Tracks.Title,
                     UserId = review.UserId,
                     Title = review.Title,
-                    Content = review.Content
-
+                    Content = review.Content,
+                    Username = review.Users.Username
                 });
 
             }

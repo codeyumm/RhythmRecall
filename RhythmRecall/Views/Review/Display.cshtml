@@ -1,0 +1,36 @@
+﻿@model  IEnumerable<RhythmRecall.Models.ReviewDto>
+
+
+@{
+    ViewBag.Title = "Display";
+}
+
+@if (Model.Count() == 0)
+{
+    <h2>You dont have any reviews yet</h2>
+
+}
+else
+{
+    <h2>All reviews of @Model.First().Username </h2>
+
+}
+
+
+@foreach (var review in Model)
+{
+    <div class="review-container">
+        <h3> Review for @review.TrackTitle </h3>
+        <h5> @review.Title</h5>
+        <h6> @review.Content </h6>
+
+        <form method="get" action="/Review/Edit">
+            <input type="hidden" name="reviewId" value="@review.Id" />
+            <input type="hidden" name="userId" value="@review.UserId" />
+
+            <input type="submit" value="Edit" />
+
+        </form>
+    </div>
+
+}

@@ -38,6 +38,13 @@ else
 
 @foreach (var track in Model)
 {
+    <form method="get" action="/Review/Display">
+        <input type="hidden" value="@track.UserId" name="userId" />
+
+        <input type="submit" value="See all reviews" />
+
+    </form>
+
 
     <div class="track-container">
         <h5> @track.Title By @track.Artist </h5>
