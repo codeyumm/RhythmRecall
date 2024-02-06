@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ReviewDataController.cs" />
     <Compile Include="Controllers\TrackDataController.cs" />
     <Compile Include="Controllers\TrackListController.cs" />
@@ -310,6 +311,9 @@
     <Content Include="Views\TrackLIst\RemoveFromListenLater.cshtml" />
     <Content Include="Views\TrackLIst\AddToDiscoverdList.cshtml" />
     <Content Include="Views\TrackLIst\Discoverd.cshtml" />
+    <Content Include="Views\Review\New.cshtml" />
+    <Content Include="Views\Review\Edit.cshtml" />
+    <Content Include="Views\Review\Remove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

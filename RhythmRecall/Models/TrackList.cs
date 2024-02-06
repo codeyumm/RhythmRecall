@@ -25,7 +25,7 @@ namespace RhythmRecall.Models
 
         public int Discovered { get; set; }
 
-    }
+    } 
 
     public class TrackListDto
     {

@@ -13,7 +13,7 @@ namespace RhythmRecall.Controllers
 {
     public class TrackListController : Controller
     {
-
+        // base url
         private string baseUrl = "https://localhost:44387/api/TrackListData/";
 
         private JavaScriptSerializer jss = new JavaScriptSerializer();
@@ -152,7 +152,7 @@ namespace RhythmRecall.Controllers
 
         // ---------------------------------
         //  Controllers for discoverd list
-        // --------------------------------
+        // --------------------------------_
 
 
 
@@ -228,8 +228,40 @@ namespace RhythmRecall.Controllers
 
         }
 
+        [HttpPost]
         public ActionResult RemoveFromDiscoverd(int userId, int trackId)
         {
+
+            // get httplcient object
+            HttpClient client = new HttpClient();
+
+            // set up url of the api
+            string url = $"{baseUrl}/RemoveFromDiscoverd/{userId}/{trackId}";
+
+            Debug.WriteLine("URL to call remove from discoverd : " + url);
+
+            // send request to call api method equivalant to -d in curl
+            HttpContent content = new StringContent("");
+
+
+            // set request content to json
+            content.Headers.ContentType.MediaType = "application/json";
+
+            // make a reuest to url and store the res
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+
+            bool isTrackDeleted;
+
+            if( response.IsSuccessStatusCode)
+            {
+                isTrackDeleted = true;
+            } else
+            {
+                isTrackDeleted = false;
+            }
+
+            TempData["isTrackDeleted"] = isTrackDeleted;
 
             return Redirect($"Discoverd/{userId}");
         }

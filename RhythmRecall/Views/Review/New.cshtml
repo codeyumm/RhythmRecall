@@ -1,0 +1,28 @@
+﻿@model RhythmRecall.Models.Review
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Review For song</h2>
+
+<div class="form-container">
+
+    <form method="POST" action="/Review/Add">
+
+        <div class="input-container">
+            <label>Title : <input type="text" name="Title" /> </label>
+        </div>
+
+        <div class="input-container">
+            <label>Content : <input type="text" name="Content" /></label>
+        </div>
+
+        <div class="input-container">
+            <input type="submit" value="Add review" />
+        </div>
+
+    </form>
+
+</div>
+
