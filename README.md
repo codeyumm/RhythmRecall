@@ -30,7 +30,18 @@
       - Add to listen later - done ✅
       - Add to discoverd - done ✅
 
-    ## Review COntroller - DOING 🎯
+    ## Review COntroller with views -done ✅
+
+    ## Home - populate some randome users review- DO 💭
+
+
+    ## Profile - make users profile page to navigate to listen later, discoverd list and reviews- DO 💭
+
+
+    ## Other users discoverd and listen later list- DO 💭
+
+
+    ## CSS to all views - DO 💭
 
               
 
