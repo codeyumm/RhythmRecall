@@ -18,3 +18,58 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.profile-container{
+    width: 100%;
+    margin-top: 60px;
+}
+
+.profile-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info {
+   
+   font-size: 18px;
+   text-align: center;
+}
+
+.user-info{
+    display: flex;
+    gap: 32px;
+}
+
+.user-avatar{
+    height: 120px;
+    width: 120px;
+}
+
+.card-img-top{
+    height: 200px;
+    width: 240px;
+}
+
+.user-image{
+    align-self: center;
+    height: 220px;
+    width: 260px;
+}
+
+.user-info{
+
+    font-size: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
