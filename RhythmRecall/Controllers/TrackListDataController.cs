@@ -48,7 +48,20 @@ namespace RhythmRecall.Controllers
 
 
 
-        // get list of listen later song
+
+
+        /// <summary>
+        /// Returns all a list of songs in listen later list
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all songs in user's listen later list 
+        /// </returns>
+        /// 
+        /// <example>
+        /// GET: api/TrackListData/GetListenLaterList/2
+        /// </example>
 
         [HttpGet]
         [ResponseType(typeof(TrackList))]

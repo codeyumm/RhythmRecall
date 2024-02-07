@@ -1,100 +1,140 @@
 [
   {
+    "Firstname": "Sophia",
+    "Lastname": "Johnson",
     "Username": "MusicLover21",
     "Email": "musiclover@example.com",
-    "Password": "P@ssw0rd"      
+    "Password": "P@ssw0rd"
   },
   {
+    "Firstname": "Liam",
+    "Lastname": "Brown",
     "Username": "HipHopFanatic",
     "Email": "fanatic@email.com",
     "Password": "SecurePass123"
   },
   {
+    "Firstname": "Emma",
+    "Lastname": "Martinez",
     "Username": "RockNRoller",
     "Email": "rocknroller@gmail.com",
     "Password": "RockOn!567"
   },
   {
+    "Firstname": "Olivia",
+    "Lastname": "Davis",
     "Username": "PopPrincess",
     "Email": "popprincess@example.com",
     "Password": "PopStar#123"
   },
   {
+    "Firstname": "Noah",
+    "Lastname": "Garcia",
     "Username": "JazzEnthusiast",
     "Email": "jazzlover@email.com",
     "Password": "SmoothGrooves456"
   },
   {
+    "Firstname": "Isabella",
+    "Lastname": "Anderson",
     "Username": "IndieExplorer",
     "Email": "indie@example.com",
     "Password": "IndieVibes789"
   },
   {
+    "Firstname": "James",
+    "Lastname": "Taylor",
     "Username": "EDMAddict",
     "Email": "edmaddict@gmail.com",
     "Password": "EDMBeats!23"
   },
   {
+    "Firstname": "Sophia",
+    "Lastname": "Wilson",
     "Username": "ClassicalMaestro",
     "Email": "classical@email.com",
     "Password": "SymphonyClassic67"
   },
   {
+    "Firstname": "Mason",
+    "Lastname": "Harris",
     "Username": "CountrySoul",
     "Email": "countrylover@example.com",
     "Password": "CountryRoads#45"
   },
   {
+    "Firstname": "Charlotte",
+    "Lastname": "Lewis",
     "Username": "RapRhymeMaster",
     "Email": "raprhyme@email.com",
     "Password": "RhymeTime!678"
   },
   {
+    "Firstname": "William",
+    "Lastname": "Thompson",
     "Username": "ReggaeRoots",
     "Email": "reggaeroots@example.com",
     "Password": "OneLoveReggae90"
   },
   {
+    "Firstname": "Ava",
+    "Lastname": "Baker",
     "Username": "MetalHead",
     "Email": "metalhead@email.com",
     "Password": "MetallicaRocks!12"
   },
   {
+    "Firstname": "Lucas",
+    "Lastname": "Clark",
     "Username": "BluesExplorer",
     "Email": "bluesexplorer@example.com",
     "Password": "BluesySoul789"
   },
   {
+    "Firstname": "Amelia",
+    "Lastname": "White",
     "Username": "FunkGroover",
     "Email": "funkgroover@email.com",
     "Password": "FunkyBeats#34"
   },
   {
+    "Firstname": "Benjamin",
+    "Lastname": "King",
     "Username": "SoulfulHarmony",
     "Email": "soulful@email.com",
     "Password": "HarmonySoul56"
   },
   {
+    "Firstname": "Harper",
+    "Lastname": "Scott",
     "Username": "TechnoHead",
     "Email": "technohead@example.com",
     "Password": "TechnoBeats!789"
   },
   {
+    "Firstname": "Evelyn",
+    "Lastname": "Harris",
     "Username": "GospelSpirit",
     "Email": "gospel@email.com",
     "Password": "SpiritualGospel123"
   },
   {
+    "Firstname": "Jackson",
+    "Lastname": "Baker",
     "Username": "PunkRebel",
     "Email": "punkrebel@example.com",
     "Password": "RebelHeart456"
   },
   {
+    "Firstname": "Luna",
+    "Lastname": "Reed",
     "Username": "R&BHarmony",
     "Email": "randb@email.com",
     "Password": "RhythmBliss!789"
   },
   {
+    "Firstname": "Henry",
+    "Lastname": "Mitchell",
     "Username": "AlternativeVibes",
     "Email": "alternative@example.com",
     "Password": "VibesOnTop567"
@@ -103,4 +143,5 @@
 
 
 
-// curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/trackdata/adduser
+
+// curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/UserData/add

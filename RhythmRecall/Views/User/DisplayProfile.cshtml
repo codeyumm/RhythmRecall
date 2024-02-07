@@ -1,4 +1,5 @@
-﻿
+﻿@model RhythmRecall.Models.ViewModels.DetailsUser
+
 @{
     ViewBag.Title = "Profile";
 }
@@ -10,31 +11,33 @@
 
     <div class="profile-card">
 
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-2.webp" title="user-avatar" class="user-image"/>
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-2.webp" title="user-avatar" class="user-image" />
 
-            <div class="info">
-                <p>@@musicexplorer | Priyam Desai</p>
-            </div>
+        <div class="info">
+            <p>@@@Model.SelectedUser.Username | @Model.SelectedUser.Firstname @Model.SelectedUser.Lastname  </p>
+        </div>
 
-     <div class="user-info">
+        <div class="user-info">
 
             <div class="reviews">
                 <p>Reviews</p>
-                <p>6</p>
+                <p>2</p>
             </div>
 
             <div class="listen-later">
                 <p>Listen Later</p>
-                <p>12</p>
+                <p>@Model.UserListenLaterList.Count()</p>
             </div>
 
             <div class="discoverd">
                 <p>Discoverd</p>
-                <p>24</p>
+                <p>@Model.UserDiscoverdList.Count()</p>
             </div>
 
-    </div>
+        </div>
 
     </div>
+
+    
 
 </section>

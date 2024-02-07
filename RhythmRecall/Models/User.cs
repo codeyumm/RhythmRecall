@@ -24,6 +24,11 @@ namespace RhythmRecall.Models
 
         public string Password { get; set; }
 
+        public string Firstname {  get; set; }
+
+        public string Lastname { get; set; }
+
+
         // TrackList can have many users
         public ICollection<TrackList> TrackLists { get; set; }
 
@@ -40,5 +45,9 @@ namespace RhythmRecall.Models
         public string Username { get; set; }
 
         public string Email { get; set; }
+
+        public string Firstname { get; set; }
+
+        public string Lastname { get; set; }
     }
 }

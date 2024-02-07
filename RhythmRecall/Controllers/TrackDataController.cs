@@ -173,32 +173,7 @@ namespace RhythmRecall.Controllers
 
 
 
-        // add this to UserDataController
-        // Add User
-        [HttpPost]
-        [ResponseType(typeof(User))]
-        [Route("api/TrackData/AddUser")]
-        public IHttpActionResult AddUser(List<User> users)
-        {
-
-  
-            Debug.WriteLine("--------------------------------");
-
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            foreach( var user in users)
-            {
-                db.Userss.Add(user);
-            }
-
-            db.SaveChanges();
-
-            return Ok();
-        }
+       
 
 
     }
