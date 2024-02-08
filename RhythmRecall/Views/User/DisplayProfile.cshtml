@@ -7,6 +7,7 @@
 
 
 
+
 <section class="profile-container">
 
     <div class="profile-card">
@@ -21,7 +22,7 @@
 
             <div class="reviews">
                 <p>Reviews</p>
-                <p>2</p>
+                <p>@Model.UserReviews.Count()</p>
             </div>
 
             <div class="listen-later">
@@ -38,6 +39,129 @@
 
     </div>
 
-    
+    <div class="track-list-container">
+
+        <div class="listen-later">
+            <h2>Listen later list</h2>
+
+            @{int counter = 0;}
+            @if (Model.UserListenLaterList.Count() == 0)
+            {
+                <h6>Your list is empty</h6>
+            }
+            else
+            {
+
+
+                foreach (var track in Model.UserListenLaterList)
+                {
+
+                    if (counter == 3)
+                    {
+                        break;
+                    };
+
+                    <div class="track-container">
+
+                        <h5>@track.Title</h5>
+                        <h6>by @track.Artist</h6>
+
+                    </div>
+
+                    counter++;
+                }
+
+
+
+                <form method="get" action="/TrackList/ListenLater">
+                    <input type="hidden" name="id" value="@Model.SelectedUser.Id" />
+
+                    <input type="submit" value="See full list" />
+                </form>
+
+            }
+
+
+        </div>
+
+        <div class="discoverd">
+            <h2>Discoverd list</h2>
+
+            @{counter = 0;}
+            @if (Model.UserDiscoverdList.Count() == 0)
+            {
+                <h6>Your list is empty</h6>
+            }
+            else
+            {
+
+
+                foreach (var track in Model.UserDiscoverdList)
+                {
+
+                    if (counter == 3)
+                    {
+                        break;
+                    };
+
+                    <div class="track-container">
+
+                        <h5>@track.Title</h5>
+                        <h6>by @track.Artist</h6>
+
+                    </div>
+
+                    counter++;
+                }
+
+  
+
+                <form method="get" action="/TrackList/Discoverd">
+                    <input type="hidden" name="id" value="@Model.SelectedUser.Id" />
+
+                    <input type="submit" value="See full list" />
+                </form>
+
+            }
+
+
+        </div>
+
+    </div>
+
+    <div class="reviews-container">
+
+        <h2>Reviews</h2>
+
+
+
+        @{counter = 0;}
+        @if (@Model.UserReviews.Count() == 0)
+        {
+            <h6>Your list is empty</h6>
+        }
+        else
+        {
+            <div class="wrapper">
+                @foreach (var review in Model.UserReviews)
+                {
+                <div class="review-container">
+                    <h5>@review.Title for @review.TrackTitle</h5>
+                    
+                    <form method="get" action="/Review/Display">
+                        <input type="hidden" name="userId" value="@Model.SelectedUser.Id" />
+
+                        <input type="submit" value="See all"/>
+                    </form>
+                </div>
+                }
+            </div>
+
+        }
+    </div>
+
+
+
+
 
 </section>

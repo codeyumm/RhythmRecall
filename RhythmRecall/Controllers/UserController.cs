@@ -51,6 +51,7 @@ namespace RhythmRecall.Controllers
             UserDto user = response.Content.ReadAsAsync<UserDto>().Result;
 
            
+          
 
             Debug.WriteLine("--- Response" + user.Username);
 
@@ -85,7 +86,20 @@ namespace RhythmRecall.Controllers
 
             ViewModel.UserDiscoverdList = discoverdList;
 
-  
+
+
+            // for reviews
+
+            // url to call the api to get track list
+            url = $"https://localhost:44387/api/ReviewData/GetUserReviews/{id}";
+
+            // get response from api
+            response = client.GetAsync(url).Result;
+
+            // store respone in tracklist object
+            IEnumerable<ReviewDto> reviews = response.Content.ReadAsAsync<IEnumerable<ReviewDto>>().Result;
+
+            ViewModel.UserReviews = reviews;
 
             // pass ViewModel to view
             return View(ViewModel);
