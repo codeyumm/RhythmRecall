@@ -132,7 +132,7 @@ namespace RhythmRecall.Controllers
 
 
 
-
+        
         [HttpGet]
         [Route("api/UserData/findIntrestedUserForDiscoverd/{userId}/{trackId}")]
 
@@ -175,9 +175,31 @@ namespace RhythmRecall.Controllers
                 });
             }
 
-         
-
             return Ok(tracklistDto);
+        }
+
+        [HttpPost]
+        [Route("api/UserData/Remove/{id}")]
+
+        public IHttpActionResult Remove(int id)
+        {
+
+            // check if user exist or not
+            User user = db.Userss.Find(id);
+           
+            if( user != null)
+            {
+                // remove user from database
+                db.Userss.Remove(user);
+                db.SaveChanges();
+
+                return Ok("User deleted from database.");
+            }
+            else
+            {
+                return BadRequest("User not found.");
+            }
+
         }
     }
 }
