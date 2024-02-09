@@ -9,14 +9,7 @@
 
 
 
-@if (Model.Count() == 0)
-{
-    <h1>You don't have any song in Discoverd list</h1>
-}
-else
-{
-    <h1>Discoverd list of  @Model.First().Username</h1>
-}
+
 
 @if (isTrackDelted == true)
 {
@@ -36,49 +29,76 @@ else
 
 }
 
-@foreach (var track in Model)
-{
-    <form method="get" action="/Review/Display">
-        <input type="hidden" value="@track.UserId" name="userId" />
-
-        <input type="submit" value="See all reviews" />
-
-    </form>
+<section class="listen-later-list-container">
 
 
-    <div class="track-container">
-        <h5> @track.Title By @track.Artist </h5>
+    <div class="btn-rev-wrapper">
+            @if (Model.Count() == 0)
+            {
+                <div class="section-heading">
+                    <h1>You don't have any song in Discoverd list</h1>
+                </div>
+            }
+            else
+            {
+                <div class="section-heading">
+                    <h1>Discoverd list of  @Model.First().Username</h1>
+                </div>
+            }
 
-        <!-- <a href="RemoveFromListenLater/@track.Id">Remove</a> -->
+            <form method="get" action="/Review/Display" class="btn-review">
+                <input type="hidden" value="@Model.First().UserId" name="userId" />
 
-        <form method="post" action="/TrackList/RemoveFromDiscoverd">
-            <input type="hidden" value="@track.UserId" name="userId" />
-            <input type="hidden" value="@track.TrackId" name="trackId" />
+                <input type="submit" value="See all reviews" />
 
-
-            <input type="submit" value="remove" />
-
-        </form>
-
-        <form method="post" action="/TrackList/AddToListenLater">
-            <input type="hidden" value="@track.UserId" name="userId" />
-            <input type="hidden" value="@track.TrackId" name="trackId" />
-
-
-            <input type="submit" value="Add to listen later" />
-
-        </form>
-
-        <form method="post" action="/Review/New">
-            <input type="hidden" value="@track.UserId" name="userId" />
-            <input type="hidden" value="@track.TrackId" name="trackId" />
-
-
-            <input type="submit" value="Write a review" />
-
-        </form>
+            </form>
 
     </div>
 
-}
+
+
+    @foreach (var track in Model)
+    {
+
+
+
+        <div class="track-container">
+            <h5> @track.Title By @track.Artist </h5>
+
+            <!-- <a href="RemoveFromListenLater/@track.Id">Remove</a> -->
+
+
+
+            <form method="post" action="/TrackList/AddToListenLater">
+                <input type="hidden" value="@track.UserId" name="userId" />
+                <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                <input type="submit" value="Add to listen later" />
+
+            </form>
+
+            <form method="post" action="/Review/New">
+                <input type="hidden" value="@track.UserId" name="userId" />
+                <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                <input type="submit" value="Write a review" />
+
+            </form>
+
+            <form method="post" action="/TrackList/RemoveFromDiscoverd">
+                <input type="hidden" value="@track.UserId" name="userId" />
+                <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                <input type="image" src="~/Content/images/bin.png" alt="submit" class="btn-submit-image" title="Remove" />
+
+
+            </form>
+
+        </div>
+
+    }
+</section>
 

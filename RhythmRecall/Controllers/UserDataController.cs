@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.ModelBinding;
 
 namespace RhythmRecall.Controllers
 {
@@ -86,6 +87,50 @@ namespace RhythmRecall.Controllers
             }
 
             
+        }
+
+        [HttpGet]
+        [Route("api/UserData/findIntrestedUserForListenLater/{id}")]
+        
+        public IHttpActionResult findIntrestedUserForListenLater(int id)
+        {
+            // check if track with given id exist or not
+
+            Track track = db.Tracks.Find(id);
+
+            // send badrequst if track is not found
+            if ( track == null )
+            {
+                return BadRequest("track is not in database");
+            }
+
+            // find all users who have given track in thier listen later list
+            List<TrackList> tracklist = db.TrackLists.Where(t => t.TrackId == id)
+                                                  .Where(listenlater => listenlater.ListenLater == 1)
+                                                  .ToList();
+
+            List<TrackListDto> tracklistDto = new List<TrackListDto> { };
+
+
+            // iterate through each tracklist row and set it to tracklistdto value
+            // append new tracklistdto object in tracklistdto list
+            foreach(var tl in tracklist)
+            {
+                tracklistDto.Add(new TrackListDto
+                {
+
+                    Id = tl.id,
+                    Title = tl.Tracks.Title,
+                    Username = tl.Userss.Username,
+                    UserId = tl.UserId,
+                    TrackId = tl.TrackId,
+                    Artist = tl.Tracks.Artist
+
+                });
+            }
+
+
+            return Ok(tracklistDto);
         }
     }
 }

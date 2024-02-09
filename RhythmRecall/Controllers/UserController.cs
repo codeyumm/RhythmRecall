@@ -104,5 +104,24 @@ namespace RhythmRecall.Controllers
             // pass ViewModel to view
             return View(ViewModel);
         }
+
+
+        // GET: User/IntrestedUserForLitenLater
+        public ActionResult IntrestedUserForLitenLater(int trackId)
+        {
+
+            // HttpClient object to use http method
+            HttpClient client = new HttpClient();
+
+            // url to call the api
+            string url = $"{baseUrl}findIntrestedUserForListenLater/{trackId}";
+
+            Debug.WriteLine(url);
+
+            
+
+
+            return View();
+        }
     }
 }
