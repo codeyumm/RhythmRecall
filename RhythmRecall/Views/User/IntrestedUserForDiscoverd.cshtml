@@ -5,14 +5,22 @@
     ViewBag.Title = "Discoverd List";
 }
 
-<h2>Below users have also explored this songs @Model.First().Title </h2>
+@if (Model.Count() != 0)
+{
+    <h2>Below users have also explored this songs @Model.First().Title </h2>
+}
+else
+{
+    <h2>You have a unique music taste, no other users have explored this song </h2>
+
+}
 
 <section class="intrested-users-container">
 
     <form method="get" action="/User/DisplayProfile">
-        <input type="hidden" value="@ViewBag.userId" name="id"/>
+        <input type="hidden" value="@ViewBag.userId" name="id" />
 
-        <input type="submit" value="Go to profile"/>
+        <input type="submit" value="Go to profile" />
     </form>
 
 

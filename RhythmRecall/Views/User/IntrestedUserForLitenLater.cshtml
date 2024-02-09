@@ -5,15 +5,29 @@
     ViewBag.Title = "IntrestedUserForLitenLater";
 }
 
-<h2>Below users are also intrested to hear @Model.First().Title </h2>
+@if (Model.Count() != 0)
+{
+    <h2>Below users are also intrested to hear @Model.First().Title </h2>
+}
+else
+{
+    <h2>You have a unique music taste, no other users wants to explore this song. Good time to share this song. </h2>
+
+}
 
 <section class="intrested-users-container">
 
-    @foreach(var user in Model)
-            {
-               
-                <h4>@user.Username</h4>
-            }
+    <form method="get" action="/User/DisplayProfile">
+        <input type="hidden" value="@ViewBag.userId" name="id" />
+
+        <input type="submit" value="Go to profile" />
+    </form>
+
+    @foreach (var user in Model)
+    {
+
+        <h4>@user.Username</h4>
+    }
 
 </section>
 

@@ -107,7 +107,7 @@ namespace RhythmRecall.Controllers
 
 
         // GET: User/IntrestedUserForLitenLater
-        public ActionResult IntrestedUserForLitenLater(int trackId)
+        public ActionResult IntrestedUserForLitenLater(int userId, int trackId)
         {
 
             // HttpClient object to use http method
@@ -133,7 +133,8 @@ namespace RhythmRecall.Controllers
             {
 
             }
-            
+
+            ViewBag.userId = userId;
 
 
             return View(tracklist);
