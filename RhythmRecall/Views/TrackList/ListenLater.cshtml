@@ -57,7 +57,7 @@
     {
 
         <div class="track-container">
-            <h5> @track.Title By @track.Artist  </h5>
+            <h4> @track.Title By @track.Artist  </h4>
 
             <!-- <a href="RemoveFromListenLater/@track.Id">Remove</a> -->
 
@@ -69,6 +69,18 @@
                 <input type="submit" value="Add to discoverd" />
 
             </form>
+
+
+            <form method="post" action="/User/IntrestedUserForDiscoverd">
+                <input type="hidden" value="@track.UserId" name="userId" />
+                <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                <input type="image" src="~/Content/images/other-users.png" alt="submit" class="btn-submit-image" title="See other users" />
+
+
+            </form>
+
 
 
             <form method="post" action="/TrackList/RemoveFromListenLater">

@@ -118,10 +118,60 @@ namespace RhythmRecall.Controllers
 
             Debug.WriteLine(url);
 
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            List<TrackListDto> tracklist = new List<TrackListDto> { };
+            // check the response
+            if ( response.IsSuccessStatusCode )
+            {
+
+                // get the response in tracklistdto List
+                tracklist = response.Content.ReadAsAsync<List<TrackListDto>>().Result;
+
+
+            } else
+            {
+
+            }
             
 
 
-            return View();
+            return View(tracklist);
+        }
+
+
+        // GET: User/IntrestedUserForDiscoverd
+        public ActionResult IntrestedUserForDiscoverd(int userId, int trackId)
+        {
+
+            // HttpClient object to use http method
+            HttpClient client = new HttpClient();
+
+            // url to call the api
+            string url = $"{baseUrl}findIntrestedUserForDiscoverd/{userId}/{trackId}";
+
+            Debug.WriteLine(url);
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            List<TrackListDto> tracklist = new List<TrackListDto> { };
+            // check the response
+            if (response.IsSuccessStatusCode)
+            {
+
+                // get the response in tracklistdto List
+                tracklist = response.Content.ReadAsAsync<List<TrackListDto>>().Result;
+
+
+            }
+            else
+            {
+
+            }
+
+            ViewBag.userId = userId;
+
+            return View(tracklist);
         }
     }
 }

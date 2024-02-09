@@ -1,7 +1,19 @@
-﻿
+﻿@model IEnumerable<RhythmRecall.Models.TrackListDto>
+
+
 @{
     ViewBag.Title = "IntrestedUserForLitenLater";
 }
 
-<h2>IntrestedUserForLitenLater</h2>
+<h2>Below users are also intrested to hear @Model.First().Title </h2>
+
+<section class="intrested-users-container">
+
+    @foreach(var user in Model)
+            {
+               
+                <h4>@user.Username</h4>
+            }
+
+</section>
 
