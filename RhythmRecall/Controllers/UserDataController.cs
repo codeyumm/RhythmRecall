@@ -201,5 +201,93 @@ namespace RhythmRecall.Controllers
             }
 
         }
+
+
+
+        // get user info from username
+        [HttpGet]
+        [Route("api/UserData/CheckUsername/{id}")] // here id is user id
+
+        public IHttpActionResult CheckUsername(string id)
+        {
+
+            // check if user exist or not
+            // get all info from users table except password
+
+            User user = db.Userss.Where( u => u.Username == id).FirstOrDefault();
+
+
+  
+            if (user != null)
+            {
+                // create user dto object
+                UserDto userDto = new UserDto();
+
+                // set value in userDto from user object
+                userDto.Id = user.Id;
+                userDto.Username = user.Username;
+                userDto.Email = user.Email;
+                userDto.Firstname = user.Firstname;
+                userDto.Lastname = user.Lastname;
+
+
+                // user exist and return userDto object as a response
+                return Ok(userDto);
+            }
+            else
+            {
+                return BadRequest("No user found in database");
+            }
+
+
+        }
+
+
+        // get all usernames from database
+        // get user info from username
+        [HttpGet]
+        [Route("api/UserData/getUsernames")] // here id is user id
+
+        public IHttpActionResult getUsernames()
+        {
+
+            // check if user exist or not
+            // get all info from users table except password
+
+            List<User> user = db.Userss.ToList();
+
+            List<UserDto> userDto = new List<UserDto> { };
+
+
+
+
+            if (user != null)
+            {
+
+                foreach(var u in user)
+                {
+                    userDto.Add( new UserDto
+                    {
+                        // set value in userDto from user object
+                        Id = u.Id,
+                        Username = u.Username,
+                        Email = u.Email,
+                        Firstname = u.Firstname,
+                        Lastname = u.Lastname,
+                });
+                }
+               
+
+
+                // user exist and return userDto object as a response
+                return Ok(userDto);
+            }
+            else
+            {
+                return BadRequest("No user found in database");
+            }
+
+
+        }
     }
 }

@@ -18,6 +18,22 @@ namespace RhythmRecall.Controllers
         // get database context
         public ApplicationDbContext db = new ApplicationDbContext();
 
+
+        /// <summary>
+        /// Returns all tracks in database
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK) with the following content:
+        /// - A list of tracks
+        /// </returns>
+        /// 
+        /// <example>
+        /// GET: https://localhost:44387/api/TrackData/ListTracks
+        /// Response: [{"Id":1,"Title":"Sinister Flows","ListenLater":null},
+        ///             {"Id":2,"Title":"Gravitational Pull","ListenLater":null},...]
+        /// </example>
+
         // Display Tracks
 
         [HttpGet]
@@ -45,11 +61,27 @@ namespace RhythmRecall.Controllers
 
         // Find Track
 
+        /// <summary>
+        /// Adds a track to database
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @track.json https://localhost:44387/api/trackdata/addtrack
+        /// Response: Ok
+        /// </example>
+
+
         // Add Track
         [HttpPost]
         [ResponseType(typeof(Track))]
         [Route("api/TrackData/AddTrack")]
 
+        // paramter is List<Track> because I wanted pass list of tracks to add multiple track with one curl request
+        // I will change it in final version
         public IHttpActionResult AddTrack(List<Track> tracks)
         {
             // if model is not valid
@@ -71,6 +103,22 @@ namespace RhythmRecall.Controllers
         }
 
         // Update Track
+
+        /// <summary>
+        /// Updates a track in database
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @trackUpdate.json https://localhost:44387/api/TrackData/UpdateTrack/1
+        /// Response: Ok
+        /// </example>
+        /// 
+
+
         [HttpPost]
         [Route("api/TrackData/UpdateTrack/{id}")]
 
@@ -125,6 +173,20 @@ namespace RhythmRecall.Controllers
 
 
         // Delete Track
+        /// <summary>
+        /// Deletes a track in database
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl  -d "" https://localhost:44387/api/TrackData/DeletTrack/1
+        /// Response: Ok
+        /// </example>
+        /// 
+
         [HttpPost]
         [Route("api/TrackData/DeleteTrack/{id}")]
         public IHttpActionResult DeleteTrack(int id)
@@ -149,7 +211,23 @@ namespace RhythmRecall.Controllers
 
         }
 
+
+
+
         // related method
+        /// <summary>
+        /// Returns list of all songs which are either in listen later list or in discoverd list
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK)
+        /// </returns>
+        /// <param name="id">2</param>
+        /// <example>
+        /// POST: curl  -d "" https://localhost:44387/api/TrackData/DeletTrack/1
+        /// Response: Ok
+        /// </example>
+        /// 
 
         // Display tracks of user
         [HttpGet]

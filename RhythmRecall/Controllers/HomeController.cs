@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Http;
+using RhythmRecall.Models;
 
 namespace RhythmRecall.Controllers
 {
@@ -10,7 +12,16 @@ namespace RhythmRecall.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+            HttpClient client = new HttpClient();
+
+            string url = "https://localhost:44387/api/UserData/getUsernames";
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            List <UserDto> usernames = response.Content.ReadAsAsync<List<UserDto>>().Result;
+
+            return View(usernames);
         }
 
         public ActionResult About()

@@ -60,7 +60,10 @@ namespace RhythmRecall.Controllers
         /// </returns>
         /// 
         /// <example>
-        /// GET: api/TrackListData/GetListenLaterList/2
+        /// GET: https://localhost:44387/api/TrackListData/GetListenLaterList/18
+        /// 
+        /// response: [{"Id":5,"Title":"Maut Ka Safar","Username":"PunkRebel","UserId":18,"TrackId":5,"Artist":"Seedhe Maut"},
+        ///             {"Id":6,"Title":"Gravity Waves".....]
         /// </example>
 
         [HttpGet]
@@ -112,6 +115,21 @@ namespace RhythmRecall.Controllers
 
             return Ok(listenLaterList);
         }
+
+
+
+        /// <summary>
+        /// Adds a song to listen later list of user
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @listenLater.json https://localhost:44127/api/tracklistdatax/AddToListenLater
+        /// response: Ok
+        /// </example>
 
 
         // add song to listen later list
@@ -200,6 +218,21 @@ namespace RhythmRecall.Controllers
         }
 
 
+        /// <summary>
+        /// Remove a song to listen later list of user
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl  -d "" https://localhost:44127/api/TrackListData/removeFromListenLater/1/4
+        /// response: User 1 removed trak with id 4 from his list
+        /// </example>
+        /// 
+
+
         // remove song from listen later list
         // check if song exist in listen later list for a particular user or  not if exist move further
         // else send an error message
@@ -247,7 +280,7 @@ namespace RhythmRecall.Controllers
 
             }
 
-            return Ok($" User {userId} wants to remove track {trackId} from lsiten later list, is operation valid? {tracklist} ---");
+            return Ok($" User {userId} removed track with id {trackId}  his list ");
         }
 
 
@@ -258,6 +291,26 @@ namespace RhythmRecall.Controllers
 
         // --- API's for discoverd list
 
+
+
+
+
+        /// <summary>
+        /// Returns all a list of songs in discoverd list
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all songs in user's listen later list 
+        /// </returns>
+        /// 
+        /// <example>
+        /// GET: https://localhost:44387/api/TrackListData/GetDiscoverdList/6
+        /// 
+        /// response: [{"Id":14,"Title":"Galactic Groove",
+        ///                 "Username":"IndieExplorer","UserId":6,"TrackId":14,"Artist":"SUPERVILLAIN"},
+        ///                 {"Id":15,"Title":"Desi Swagger".....]
+        /// </example>
 
         // get list of discoverd song
 
@@ -314,6 +367,19 @@ namespace RhythmRecall.Controllers
             return Ok(dsicovedList);
         }
 
+
+        /// <summary>
+        /// Adds a song to discoverd list of user
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @listenLater.json https://localhost:44127/api/tracklistdatax/AddToDiscoverdList
+        /// response: Ok
+        /// </example>
 
         // add song to discoverd list
         // we will need trackId, UserId
@@ -408,6 +474,22 @@ namespace RhythmRecall.Controllers
 
         }
 
+
+
+        /// <summary>
+        /// Remove a song to discoverd list of user
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl  -d "" https://localhost:44127/api/TrackListData/removeFromListenLater/1/4
+        /// response: User 1 removed trak with id 4 from his list
+        /// </example>
+        /// 
+
         // remove song from discoverd list
 
         [HttpPost]
@@ -449,7 +531,7 @@ namespace RhythmRecall.Controllers
 
             }
 
-            return Ok($" User {userId} wants to remove track {trackId} from discoverd list, is operation valid? {tracklist} ---");
+            return Ok($" User {userId} removed track with id {trackId} from his list");
         }
 
 

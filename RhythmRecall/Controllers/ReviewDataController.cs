@@ -18,6 +18,24 @@ namespace RhythmRecall.Controllers
         public ApplicationDbContext db = new ApplicationDbContext();
 
 
+        /// <summary>
+        /// Returns all reviews of song based 
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all reivews of a song
+        /// </returns>
+        /// 
+        /// <param name="trackId">ID of a track</param>
+        /// 
+        /// <example>
+        /// GET: https://localhost:44387/api/ReviewData/getReviews/{trackId}
+        ///
+        /// response: [{"Id":1,"TrackId":6,"UserId":6,"Title":"Good","Content":"Perfect blend of instruments."}.....]
+        /// </example>
+
+
         // get all reviews of a song based ons songid
         [HttpGet]
         [Route("api/ReviewData/getReviews/{trackId}")]
@@ -54,8 +72,21 @@ namespace RhythmRecall.Controllers
 
 
         // write a review for a song
+
+        /// <summary>
+        /// Adds a review for a song
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK) - "Review Added"
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @review.json https://localhost:44387/api/reviewdata/addreview
+        /// 
+        /// response: "Review Added"
+        /// </example>
         [HttpPost]
-        // [Route("api/ReviewData/AddReview/{userId}/{trackId}/{title}/{content}")]
         [Route("api/ReviewData/AddReview")]
 
         public IHttpActionResult AddReview(Review review)
@@ -115,11 +146,29 @@ namespace RhythmRecall.Controllers
 
 
 
-            return Ok("this api will add a review in database");
+            return Ok("Review Added");
         }
 
 
         // to delete review
+
+        /// <summary>
+        /// Adds a review for a song
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK) - "Review delted"
+        /// </returns>
+        /// 
+        /// <param name="reviewId">id of review to be deleted</param>
+        /// <param name="userId">id of user</param>
+        /// 
+        /// <example>
+        /// POST: curl -d "" https://localhost:44387/api/ReviewData/RemoveReview/6/1
+        /// 
+        /// response: "RReview delted"
+        /// </example>
+        /// 
         [HttpPost]
         [Route("api/ReviewData/RemoveReview/{userId}/{reviewId}")]
 
@@ -163,6 +212,24 @@ namespace RhythmRecall.Controllers
 
 
         // to edit review
+
+        /// <summary>
+        /// To edit a review
+        /// </summary>
+        /// 
+        /// <returns>
+        /// View with a form to edit values
+        /// </returns>
+        /// 
+        /// <param name="reviewId">id of review to be edited</param>
+        /// <param name="userId">id of user</param>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @reviewUpdate.json https://localhost:44387/api/reviewdata/editreview/10/20
+        /// 
+        /// response: "Review Updated"
+        /// </example>
+        /// 
         [HttpPost]
         [Route("api/ReviewData/EditReview/{userId}/{reviewId}")]
 
@@ -222,6 +289,7 @@ namespace RhythmRecall.Controllers
 
 
         // find review
+
         [HttpGet]
         [Route("api/ReviewData/Find/{reviewId}")]
 
@@ -261,6 +329,24 @@ namespace RhythmRecall.Controllers
 
 
         // get all reviews of given user id
+
+        /// <summary>
+        /// To get all reviews of a user based on user id
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HEADER: 200 (OK) with list of reviews
+        /// </returns>
+        /// 
+        /// <param name="userId">id of review to be edited</param>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @reviewUpdate.json https://localhost:44387/api/reviewdata/editreview/10/20
+        /// 
+        /// response: "Review Updated"
+        /// </example>
+        /// 
+
 
         [HttpGet]
         [Route("api/ReviewData/GetUserReviews/{userId}")]

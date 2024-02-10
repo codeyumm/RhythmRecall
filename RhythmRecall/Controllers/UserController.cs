@@ -19,6 +19,35 @@ namespace RhythmRecall.Controllers
             return View();
         }
 
+        public ActionResult CheckProfile(string username)
+        {
+
+            // HttpClient object to use http method
+            HttpClient client = new HttpClient();
+
+            // url to call the api
+            string url = $"{baseUrl}/CheckUsername/{username}";
+
+            Debug.WriteLine(url);
+
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            UserDto user = response.Content.ReadAsAsync<UserDto>().Result;
+
+            if( response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine("User found");
+
+                return RedirectToAction("/DisplayProfile", new { id = user.Id });
+            } else
+            {
+                Debug.WriteLine("User NOT found");
+
+            }
+
+            return View();
+        }
+
         // GET: User/DisplayProfile/id
 
         public ActionResult DisplayProfile(int id)
@@ -131,8 +160,8 @@ namespace RhythmRecall.Controllers
 
             } else
             {
-
-            }
+                
+            } 
 
             ViewBag.userId = userId;
 

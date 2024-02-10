@@ -1,0 +1,12 @@
+[
+  {
+    "UserId": 1,
+    "TrackId": 4,
+    "ListenLater": 1,
+    "Discovered": 0
+  }
+]
+
+   
+
+// curl -H "Content-Type:application/json" -d @listenlater.json https://localhost:44127/api/tracklistdatax/AddToListenLater
