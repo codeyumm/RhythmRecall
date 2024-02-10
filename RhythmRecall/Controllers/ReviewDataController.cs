@@ -341,9 +341,9 @@ namespace RhythmRecall.Controllers
         /// <param name="userId">id of review to be edited</param>
         /// 
         /// <example>
-        /// POST: curl -H "Content-Type:application/json" -d @reviewUpdate.json https://localhost:44387/api/reviewdata/editreview/10/20
+        /// GET: curl -H "Content-Type:application/json" -d @reviewUpdate.json https://localhost:44387/api/reviewdata/editreview/10/20
         /// 
-        /// response: "Review Updated"
+        /// response: [{"Id":3,"TrackId":1,"TrackTitle":"Sinister Flows","UserId":6,"Title":"HEllo","Content":"Gets me pumped up every time!","Username":"IndieExplorer"}]
         /// </example>
         /// 
 

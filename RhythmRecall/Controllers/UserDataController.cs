@@ -18,9 +18,26 @@ namespace RhythmRecall.Controllers
 
 
         // Add User
+
+
+        /// <summary>
+        /// Adds a user to database
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK)
+        /// </returns>
+        /// 
+        /// <example>
+        /// POST: curl -H "Content-Type:application/json" -d @user.json https://localhost:44387/api/UserData/add
+        /// Response: Ok
+        /// </example>
+
         [HttpPost]
         [ResponseType(typeof(User))]
         [Route("api/UserData/Add")]
+        // paramter is List<Track> because I wanted pass list of tracks to add multiple track with one curl request
+        // I will change it in final version
         public IHttpActionResult Add(List<User> users)
         {
 
@@ -46,6 +63,22 @@ namespace RhythmRecall.Controllers
 
 
 
+        /// <summary>
+        /// Return all information of a user based on user id
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK) with the following content:
+        /// - information about user
+        /// </returns>
+        /// 
+        /// <param name="id">id of user</param>
+        /// 
+        /// <example>
+        /// GET: https://localhost:44387/api/UserData/GetProfileInfo/6
+        /// 
+        /// Response:{"Id":6,"Username":"IndieExplorer","Email":"indie@example.com","Firstname":"Isabella","Lastname":"Anderson"}
+        /// </example>
 
         [HttpGet]
         [Route("api/UserData/GetProfileInfo/{id}")] // here id is user id
@@ -85,6 +118,29 @@ namespace RhythmRecall.Controllers
 
             
         }
+
+
+
+        /// <summary>
+        /// Returns list of user who have song in thier listen later list
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK) with the following content:
+        /// - list of user
+        /// </returns>
+        /// 
+        /// <param name="id">id of track</param>
+        /// 
+        /// <example>
+        /// GET: https://localhost:44387/api/UserData/findIntrestedUserForListenLater/12
+        /// 
+        /// Response:[{"Id":10,"Title":"Rap Resurrection","Username":"PunkRebel","UserId":18,"TrackId":12,"Artist":"Raftaar"},
+        /// {"Id":30,"Title":"Rap Resurrection","Username":"RockNRoller","UserId":3,"TrackId":12,"Artist":"Raftaar"}]
+        /// </example>
+
+
+
 
         [HttpGet]
         [Route("api/UserData/findIntrestedUserForListenLater/{id}")]
@@ -131,8 +187,24 @@ namespace RhythmRecall.Controllers
         }
 
 
+        /// <summary>
+        /// Returns list of user who have song in thier discoverd list
+        /// </summary>
+        /// 
+        /// <returns>
+        /// HTTP 200 (OK) with the following content:
+        /// - list of user
+        /// </returns>
+        /// 
+        /// <param name="id">id of track</param>
+        /// <param name="userId">id of user</param>
+        /// <example>
+        /// GET: https://localhost:44387/api/UserData/findIntrestedUserForDiscoverd/6/18
+        /// 
+        /// Response:[{"Id":16,"Title":"Anti-Gravity Anthem","Username":"MetalHead","UserId":12,"TrackId":18,"Artist":"SUPERVILLAIN"},{"Id":39,"Title":"Anti-Gravity Anthem","Username":"EDMAddict","UserId":7,"TrackId":18,"Artist":"SUPERVILLAIN"}]
+        /// </example>
 
-        
+
         [HttpGet]
         [Route("api/UserData/findIntrestedUserForDiscoverd/{userId}/{trackId}")]
 
