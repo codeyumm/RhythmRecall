@@ -15,12 +15,7 @@
 - Share your own thoughts and recommendations with the community.
 - Discover hidden treasures and expand your music library with ease.
 
-# Additional Features
-
-## User Connections
-- Connect with other users who share similar music interests.
-- Discover users who are interested in specific tracks or have already discovered them.
-- Expand your musical network and engage with like-minded individuals.
+##  Discover users who are interested in specific tracks or have already discovered them.
 
 
 
