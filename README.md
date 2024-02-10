@@ -7,7 +7,7 @@
 
 ## Save Music You Want to Hear Later
 - Add songs or albums to your "Listen Later" list.
-- Whether you stumble upon new music or receive recommendations, you can save it for future enjoyment.
+- Whether you stumble for new music or receive recommendations, you can save it for future enjoyment.
 - Never miss out on discovering great music again!
 
 ## Reviews
@@ -35,17 +35,17 @@
 - **POST /api/ReviewData/AddReview**:
   Adds a review for a song.
   - **Example**: `POST https://localhost:44387/api/reviewdata/addreview`
-  - **Response**: "Review Added" upon successful addition of the review.
+  - **Response**: "Review Added" for successful addition of the review.
 
 - **POST /api/ReviewData/RemoveReview/{userId}/{reviewId}**:
   Deletes a review for a song.
   - **Example**: `POST https://localhost:44387/api/ReviewData/RemoveReview/6/1`
-  - **Response**: "Review deleted" upon successful deletion of the review.
+  - **Response**: "Review deleted" for successful deletion of the review.
 
 - **POST /api/ReviewData/EditReview/{userId}/{reviewId}**:
   Edits a review for a song.
   - **Example**: `POST https://localhost:44387/api/reviewdata/editreview/10/20`
-  - **Response**: "Review Updated" upon successful update of the review.
+  - **Response**: "Review Updated" for successful update of the review.
 
 - **GET /api/ReviewData/Find/{reviewId}**:
   Finds a review based on its ID.
@@ -59,6 +59,110 @@
 
 
 
+# APIs for track list
+
+
+- **POST /api/TrackListDatax/AddToListenLater**:
+  Adds multiple songs to the user's listen later list.
+  - **Example**: `POST https://localhost:44387/api/TrackListDatax/AddToListenLater`
+  - **Response**: 200 (OK) for successful addition.
+
+- **GET /api/TrackListData/GetListenLaterList/{userId}**:
+  Retrieves a list of songs in the user's listen later list.
+  - **Example**: `GET https://localhost:44387/api/TrackListData/GetListenLaterList/{userId}`
+  - **Response**: Returns a list of songs in the user's listen later list.
+
+- **POST /api/TrackListData/AddToListenLaterList/{userId}/{trackId}**:
+  Adds a song to the user's listen later list.
+  - **Example**: `POST https://localhost:44387/api/TrackListData/AddToListenLaterList/{userId}/{trackId}`
+  - **Response**: "Track is already in listen later list" if the track is already in the list; otherwise, an error message.
+
+- **POST /api/TrackListData/removeFromListenLater/{userId}/{trackId}**:
+  Removes a song from the user's listen later list.
+  - **Example**: `POST https://localhost:44387/api/TrackListData/removeFromListenLater/{userId}/{trackId}`
+  - **Response**: "User {userId} removed track with id {trackId} from his list" for successful removal.
+
+- **GET /api/TrackListData/GetDiscoverdList/{userId}**:
+  Retrieves a list of songs in the user's discovered list.
+  - **Example**: `GET https://localhost:44387/api/TrackListData/GetDiscoverdList/{userId}`
+  - **Response**: Returns a list of songs in the user's discovered list.
+
+- **POST /api/TrackListData/AddToDiscoverdList/{userId}/{trackId}**:
+  Adds a song to the user's discovered list.
+  - **Example**: `POST https://localhost:44387/api/TrackListData/AddToDiscoverdList/{userId}/{trackId}`
+  - **Response**: "Song added to discovered list" for successful addition.
+
+- **POST /api/TrackListData/removeFromDiscoverd/{userId}/{trackId}**:
+  Removes a song from the user's discovered list.
+  - **Example**: `POST https://localhost:44387/api/TrackListData/removeFromDiscoverd/{userId}/{trackId}`
+  - **Response**: "User {userId} removed track with id {trackId} from his list" for successful removal.
+
+
+
+
+# APIs for users
+
+- **POST /api/UserData/Add**:
+  Adds multiple users to the database.
+  - **Example**: `POST https://localhost:44387/api/UserData/Add`
+  - **Response**: 200 (OK) for successful addition.
+
+- **GET /api/UserData/GetProfileInfo/{id}**:
+  Retrieves information about a user based on user ID.
+  - **Example**: `GET https://localhost:44387/api/UserData/GetProfileInfo/{id}`
+  - **Response**: Returns information about the user.
+
+- **GET /api/UserData/findIntrestedUserForListenLater/{id}**:
+  Retrieves a list of users who have a specific song in their listen later list.
+  - **Example**: `GET https://localhost:44387/api/UserData/findIntrestedUserForListenLater/{id}`
+  - **Response**: Returns a list of users interested in the specified song.
+
+- **GET /api/UserData/findIntrestedUserForDiscoverd/{userId}/{trackId}**:
+  Retrieves a list of users who have a specific song in their discovered list, excluding the specified user.
+  - **Example**: `GET https://localhost:44387/api/UserData/findIntrestedUserForDiscoverd/{userId}/{trackId}`
+  - **Response**: Returns a list of users interested in the specified song, excluding the specified user.
+
+- **POST /api/UserData/Remove/{id}**:
+  Removes a user from the database based on user ID.
+  - **Example**: `POST https://localhost:44387/api/UserData/Remove/{id}`
+  - **Response**: "User deleted from database" for successful removal.
+
+- **GET /api/UserData/CheckUsername/{id}**:
+  Checks if a username exists in the database.
+  - **Example**: `GET https://localhost:44387/api/UserData/CheckUsername/{id}`
+  - **Response**: Returns information about the user if found; otherwise, returns an error message.
+
+- **GET /api/UserData/getUsernames**:
+  Retrieves a list of usernames from the database.
+  - **Example**: `GET https://localhost:44387/api/UserData/getUsernames`
+  - **Response**: Returns a list of usernames.
+
+# APIs for track
+
+- **GET /api/TrackData/ListTracks**:
+  Retrieves a list of all tracks in the database.
+  - **Example**: `GET https://localhost:44387/api/TrackData/ListTracks`
+  - **Response**: Returns a list of tracks.
+
+- **POST /api/TrackData/AddTrack**:
+  Adds multiple tracks to the database.
+  - **Example**: `POST https://localhost:44387/api/TrackData/AddTrack`
+  - **Response**: 200 (OK) for successful addition.
+
+- **POST /api/TrackData/UpdateTrack/{id}**:
+  Updates a track in the database.
+  - **Example**: `POST https://localhost:44387/api/TrackData/UpdateTrack/{id}`
+  - **Response**: 200 (OK) for successful update.
+
+- **POST /api/TrackData/DeleteTrack/{id}**:
+  Deletes a track from the database based on its ID.
+  - **Example**: `POST https://localhost:44387/api/TrackData/DeleteTrack/{id}`
+  - **Response**: 200 (OK) for successful deletion.
+
+- **GET /api/TrackData/DisplaySongs/{id}**:
+  Displays a list of songs associated with a specific user.
+  - **Example**: `GET https://localhost:44387/api/TrackData/DisplaySongs/{id}`
+  - **Response**: Returns a list of songs.
 
 
 
@@ -81,59 +185,3 @@
 
 
 
-
-
-
-
-
-
-### Ignore, for personal user only
-
-### TODO
-
-## API
-      - api method to get all songs of user - done ✅
-      - api method to get discoverd songs of user - done ✅
-      - api method to get listen later songs of user - done ✅
-      
-      - api method to add listen later song of user - done ✅
-      - api method to add discoverd songs of user - done ✅
-      
-      - api method to delete song from listen later list of user - done ✅
-      - api method to delete  songs from discoverd list of user - done ✅
-      
-      - make model of Review entity - done ✅
-      
-      - api method to view a review of a song -  done ✅
-      - api method to write a review of a song - done ✅
-      - api method to update a review of a song - done ✅
-      - api method to delete a review of a song - done ✅
-      - api method to view all reviews of user - done ✅
-
-  ## Controller and Views
-  
-     ## TrackList Controller - done ✅
-    
-      - Display ListenLater - done ✅
-      - Display Discoverd - done ✅
-      - Remove from listen later - done ✅
-      - Reomve from discoverd - done ✅
-      - Add to listen later - done ✅
-      - Add to discoverd - done ✅
-
-    ## Review COntroller with views -done ✅
-
-    ## Home - populate some randome users review- DO 💭
-
-
-    ## Profile - make users profile page to navigate to listen later, discoverd list and reviews- DO 💭
-
-
-    ## Other users discoverd and listen later list- DO 💭
-
-
-    ## CSS to all views - DO 💭
-
-              
-
-- login/signup - DO 🗨
