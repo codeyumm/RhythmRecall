@@ -4,14 +4,33 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Home</h2>
-
-@foreach( var track in Model)
-            {
-                <h1> @track.Title - @track.Artist</h1>
-
-                <img src= "@track.AlbumArt" class="album-art" />
 
 
-            }
+<div class="container">
+    
+    <div class="row flex justify-content-center align-items-center">
+        @foreach (var track in Model)
+        {
+            <div class="card mx-4 p-4" style="width: 18rem;">
+                <img src="@track.AlbumArt" class="card-img-top" alt="Album art image">
+
+                <div class="card-body">
+                    <h5 class="card-title">@track.Title - @track.Artist</h5>
+    
+                </div>
+
+            </div>
+
+        }
+
+    </div>
+
+</div>
+
+
+
+
+            
+
+
 
