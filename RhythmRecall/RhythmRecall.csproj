@@ -230,6 +230,14 @@
     <Compile Include="Migrations\202402071918143_user-table-update.designer.cs">
       <DependentUpon>202402071918143_user-table-update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402192012164_updatedTrackTable.cs" />
+    <Compile Include="Migrations\202402192012164_updatedTrackTable.Designer.cs">
+      <DependentUpon>202402192012164_updatedTrackTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202402192016104_updatedTrackTable2.cs" />
+    <Compile Include="Migrations\202402192016104_updatedTrackTable2.Designer.cs">
+      <DependentUpon>202402192016104_updatedTrackTable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -330,6 +338,7 @@
     <Content Include="Views\User\IntrestedUserForLitenLater.cshtml" />
     <Content Include="Views\User\IntrestedUserForDiscoverd.cshtml" />
     <Content Include="Views\User\CheckProfile.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -389,6 +398,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202402071918143_user-table-update.resx">
       <DependentUpon>202402071918143_user-table-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402192012164_updatedTrackTable.resx">
+      <DependentUpon>202402192012164_updatedTrackTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402192016104_updatedTrackTable2.resx">
+      <DependentUpon>202402192016104_updatedTrackTable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

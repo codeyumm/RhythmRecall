@@ -1,0 +1,17 @@
+﻿@model List<RhythmRecall.Models.Track>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Home</h2>
+
+@foreach( var track in Model)
+            {
+                <h1> @track.Title - @track.Artist</h1>
+
+                <img src= "@track.AlbumArt" class="album-art" />
+
+
+            }
+

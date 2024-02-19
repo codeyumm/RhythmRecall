@@ -32,7 +32,9 @@ Table Track
 
         public string Album { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public string AlbumArt { get; set; }
+
+        public DateTime? ReleaseDate { get; set; } = new DateTime(2024, 12, 12);
 
         // TrackList can have many tracks
         public ICollection<TrackList> TrackLists { get; set;}
