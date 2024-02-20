@@ -339,6 +339,7 @@
     <Content Include="Views\User\IntrestedUserForDiscoverd.cshtml" />
     <Content Include="Views\User\CheckProfile.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\TrackSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

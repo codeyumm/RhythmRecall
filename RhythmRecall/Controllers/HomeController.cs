@@ -45,7 +45,6 @@ namespace RhythmRecall.Controllers
 
                 var json = await response.Content.ReadAsStringAsync();
 
-
                 JObject jsonData = JObject.Parse(json);
 
                 // ger data which is inside the json array
@@ -73,6 +72,62 @@ namespace RhythmRecall.Controllers
 
 
             return View(tracksModel);
+        }
+
+
+        // GET - localhost:44387/home/tracksearch
+        // to handle user search for a track
+        public async Task<ActionResult> TrackSearch(string searchQuery)
+        {
+
+            // get the search string from request
+            string searchString = searchQuery;
+
+            // client object to make request
+            HttpClient client = new HttpClient();
+
+            // api url
+            string url = $"https://api.deezer.com/search?q={searchString}";
+            Debug.WriteLine(url);
+
+            // empty list of track
+            List<Track> trackList = new List<Track> { };
+
+            // get response after making the request with api url
+            HttpResponseMessage response = client.GetAsync(url).Result;
+
+            // check if response was succesful or not
+            if (response.IsSuccessStatusCode)
+            {
+
+                // store data as string
+                var json = await response.Content.ReadAsStringAsync();
+
+                // convert string into json
+                JObject jsonData = JObject.Parse(json);
+
+                // get data which is inside the json array
+                JArray tracks = (JArray)jsonData["data"];
+
+                foreach (var track in tracks)
+                {
+
+
+                    trackList.Add(new Track
+                    {
+                        Title = track["title"].ToString(),
+                        Artist = track["artist"]["name"].ToString(),
+                        AlbumArt = track["album"]["cover_big"].ToString()
+
+                    });
+
+
+                }
+
+             
+            }
+
+            return View(trackList);
         }
 
         public ActionResult About()
