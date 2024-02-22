@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Home";
+    var userId = Session["userId"];
+    var test = ViewBag.Id;
 }
 
 
@@ -24,17 +26,23 @@
 
     <div class="row flex justify-content-center align-items-center">
 
-        <h1> @ViewBag.userId</h1>
+
         @foreach (var track in Model)
         {
             <div class="card mx-4 my-4 p-4" style="width: 18rem;">
                 <img src="@track.AlbumArt" class="card-img-top" alt="Album art image">
                     
                 <div class="card-body">
+
+
+                    <h1> @userId  </h1>
+
+
+
                     <h5 class="card-title">@track.Title </h5>
                     <h5 class="card-title">by @track.Artist </h5>
 
-           
+
                 </div>
                 <div class="card-footer d-flex justify-content-between">
 

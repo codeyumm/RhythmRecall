@@ -79,8 +79,9 @@ namespace RhythmRecall.Controllers
             {
                 User resUser = response.Content.ReadAsAsync<User>().Result;
 
-                Session.Clear();
+   
 
+                Debug.WriteLine(resUser.Id + "0000000");
                 ViewBag.userId = resUser.Id;
                 Session["userId"] = resUser.Id;
    
