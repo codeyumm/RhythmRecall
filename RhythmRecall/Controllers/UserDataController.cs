@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -360,6 +361,44 @@ namespace RhythmRecall.Controllers
             }
 
 
+        }
+
+        // to validate username and password
+        [HttpPost]
+        [Route("api/UserData/Validate")]
+        public IHttpActionResult Validate(User user)
+        {
+            Debug.WriteLine(user.Username);
+            Debug.WriteLine(user.Password);
+
+            // returns true or false if user exist or not
+
+             bool isUserExist = (db.Userss.Where( u => u.Username == user.Username)
+                                    .FirstOrDefault() == null) ? false : true;
+
+            // Debug.WriteLine(isUserExist + "isUserExists");
+
+            if ( isUserExist)
+            {
+                // validate user
+                User validatedUser = db.Userss.Where(u => u.Username == u.Username)
+                                               .Where(u => u.Password == u.Password).FirstOrDefault();
+                if( validatedUser!= null ) 
+                {
+                    return Ok(validatedUser);
+
+                }
+
+                return BadRequest("Wrong password");
+
+            } 
+            else
+            {
+                // return with a message
+                return BadRequest("User not found");
+            }
+
+           
         }
     }
 }

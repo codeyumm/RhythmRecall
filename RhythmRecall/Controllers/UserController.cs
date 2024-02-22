@@ -7,12 +7,16 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace RhythmRecall.Controllers
 {
     public class UserController : Controller
     {
         string baseUrl = "https://localhost:44387/api/UserData/";
+
+        private JavaScriptSerializer jss = new JavaScriptSerializer();
+
         // GET: User
         public ActionResult Index()
         {
@@ -47,6 +51,48 @@ namespace RhythmRecall.Controllers
 
             return View();
         }
+
+        // using post method here because we passing username and password
+        // POST: User/ValidateUser
+
+        public ActionResult ValidateUser(User user)
+        {
+
+            // check username and password
+            Debug.WriteLine(user.Username);
+            Debug.WriteLine(user.Password);
+
+            // validate username and password
+            HttpClient client = new HttpClient();
+
+            // api to call api
+            string url = $"{baseUrl}/Validate";
+
+            string jsonpayload = jss.Serialize(user);
+            HttpContent content = new StringContent(jsonpayload);
+            content.Headers.ContentType.MediaType = "application/json";
+
+
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+
+            if( response.IsSuccessStatusCode)
+            {
+                User resUser = response.Content.ReadAsAsync<User>().Result;
+
+                Session.Clear();
+
+                ViewBag.userId = resUser.Id;
+                Session["userId"] = resUser.Id;
+   
+                return Redirect("/Home/Search");
+            }
+
+            Debug.WriteLine("Hello");
+
+            return Redirect("/Home/Index");
+        }
+
+
 
         // GET: User/DisplayProfile/id
 

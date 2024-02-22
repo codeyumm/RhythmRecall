@@ -268,6 +268,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\hero.png" />
     <Content Include="Content\images\other-users.png" />
     <Content Include="Content\images\move.png" />
     <Content Include="Content\images\bin.png" />

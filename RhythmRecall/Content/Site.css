@@ -1,4 +1,6 @@
-﻿/* Set padding to keep content from hitting the edges */
+﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;
     padding-left: 15px;
@@ -19,6 +21,13 @@ textarea {
     max-width: 280px;
 }
 
+
+body {
+    background-color: hsla(0,0%,100%,1);
+    background-image: radial-gradient(at 40% 20%, hsla(260,84%,87%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(188,67%,67%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(340,36%,84%,1) 0px, transparent 50%), radial-gradient(at 10% 80%, hsla(18,0%,100%,1) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(240,25%,68%,1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(340,27%,75%,0.23) 0px, transparent 50%);
+    overflow: hidden;
+    font-family: "Manrope", sans-serif;
+}
 .profile-container{
     width: 100%;
     margin-top: 60px;
@@ -148,3 +157,62 @@ textarea {
     background-color: white;
     border: 2px solid #6f81a9;
 }
+
+
+.hero-container {
+    height: 100vh; 
+}
+
+.hero-left h4 {
+    color: #2b1c2f;
+}
+
+
+
+.glassmorphism-form {
+    background: rgba(255, 255, 255, 0.25); 
+    backdrop-filter: blur(10px);
+    border-radius: 10px; 
+    padding: 20px; 
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+
+.hero-image {
+    height: 420px;
+    width: 420px;
+}
+
+.home-page {
+    height: 100vh;
+}
+
+
+.field-container {
+    margin-bottom: 15px;
+}
+label {
+    margin-bottom: 5px;
+}
+
+.home-page input[type="text"],
+.home-page input[type="password"],
+.home-page  input[type="submit"] {
+    padding: 10px; /* Padding for inputs */
+    border: none; /* No default border */
+    border-radius: 5px; /* Border radius */
+    width: 100%; /* Full width */
+}
+
+.home-page  input[type="submit"] {
+    background-color: #a7d7c5; /* Pastel color for submit button */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Pointer cursor */
+}
+
+    /* Styling for hover and focus states */
+.home-page input[type="submit"]:hover,
+.home-page input[type="submit"]:focus {
+        background-color: #7bbbae; /* Darker color on hover/focus */
+    }
