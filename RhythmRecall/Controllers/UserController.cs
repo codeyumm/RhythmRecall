@@ -85,10 +85,9 @@ namespace RhythmRecall.Controllers
                 ViewBag.userId = resUser.Id;
                 Session["userId"] = resUser.Id;
    
-                return Redirect("/Home/Search");
+                return Redirect($"/Home/Search/?id={resUser.Id}");
             }
 
-            Debug.WriteLine("Hello");
 
             return Redirect("/Home/Index");
         }

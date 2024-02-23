@@ -27,8 +27,10 @@ namespace RhythmRecall.Controllers
             return View(usernames);
         }
 
+        // GET - Home/Search/{id}
         public async Task<ActionResult> Search()
         {
+
 
             HttpClient client = new HttpClient();
 
@@ -50,10 +52,9 @@ namespace RhythmRecall.Controllers
                 // ger data which is inside the json array
                 JArray tracks = (JArray)jsonData["data"];
 
-                // Empty list of track model
 
-                
 
+              
                 foreach (var track in tracks)
                 {
 

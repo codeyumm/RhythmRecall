@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Home";
+    var userId = Session["userId"];
+    var test = ViewBag.userId;
 }
 
 
@@ -29,6 +31,9 @@
                 <img src="@track.AlbumArt" class="card-img-top" alt="Album art image">
 
                 <div class="card-body">
+
+
+
                     <h5 class="card-title">@track.Title </h5>
                     <h5 class="card-title">by @track.Artist </h5>
 
@@ -37,6 +42,11 @@
                 <div class="card-footer d-flex justify-content-between">
 
                     <form method="POST" action="">
+
+                        <input type="hidden" name="Title" value="@track.Title" />
+                        <input type="hidden" name="Artist" value="@track.Artist" />
+                        <input type="hidden" name="Album" value="@track.Album" />
+                        <input type="hidden" name="AlbumArt" value="@track.Title" />
 
                         <input class="btn custom-btn" type="submit" value="Listen later" />
 

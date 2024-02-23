@@ -9,24 +9,28 @@
 
 
     <div class="col hero-contianer d-flex align-content-center justify-content-center">
+
         <div class="col-6 hero-left d-flex flex-column align-items-center">
             <img src="~/Content/images/hero.png" alt="" class="hero-image" />
             <h4>Track songs you’ve listened.</h4>
             <h4>Save those you want to hear.</h4>
             <h4>Tell your friends what’s good.</h4>
         </div>
+
         <div class="col-6 hero-right d-flex align-items-center justify-content-center">
+
             <form method="get" action="/User/ValidateUser" class="glassmorphism-form">
                 <div class="field-container">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="Enter your user name" />
+                    <input type="text" name="username" id="username" placeholder="Enter your user name" required />
                 </div>
                 <div class="field-container">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="leave it blank" />
+                    <input type="password" name="password" id="password" placeholder="leave it blank" required />
                 </div>
                 <input type="submit" value="Login" />
             </form>
+
         </div>
     </div>
 

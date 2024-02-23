@@ -383,6 +383,7 @@ namespace RhythmRecall.Controllers
                 // validate user
                 User validatedUser = db.Userss.Where(u => u.Username == u.Username)
                                                .Where(u => u.Password == u.Password).FirstOrDefault();
+
                 if( validatedUser!= null ) 
                 {
                     return Ok(validatedUser);
