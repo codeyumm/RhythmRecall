@@ -61,6 +61,7 @@ namespace RhythmRecall.Controllers
             // check username and password
             Debug.WriteLine(user.Username);
             Debug.WriteLine(user.Password);
+            Debug.WriteLine(user.Id + "------");
 
             // validate username and password
             HttpClient client = new HttpClient();
@@ -81,7 +82,10 @@ namespace RhythmRecall.Controllers
 
    
 
-                Debug.WriteLine(resUser.Id + "0000000");
+                Debug.WriteLine(resUser.Id + "id from response user");
+
+                Session.Clear();
+
                 ViewBag.userId = resUser.Id;
                 Session["userId"] = resUser.Id;
    

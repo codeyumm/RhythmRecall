@@ -187,6 +187,12 @@ namespace RhythmRecall.Controllers
                     tracklist.TrackId = trackId;
                     tracklist.Discovered = 0;
                     tracklist.ListenLater = 1;
+
+                    db.TrackLists.Add(tracklist);
+                    db.SaveChanges();
+
+                    Debug.WriteLine("Tried to adding in database");
+
                 }
                 else if( isInDiscoverdList ) // if track is in discoverd list
                 {

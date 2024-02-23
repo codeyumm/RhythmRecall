@@ -65,25 +65,44 @@ namespace RhythmRecall.Controllers
         // GET: TrackList/AddToListenLater/userId/TrackId
         [HttpPost]
 
-        public ActionResult AddToListenLater(int userId, int trackId)
+        public ActionResult AddToListenLater(int userId, int trackId, Track track)
         {
-            Debug.WriteLine(userId + " ---- ohoohoo-- --- -- -" + trackId);
+            Debug.WriteLine(track.Title);
+
+
 
             // object of httpclient to use http methods
             HttpClient client = new HttpClient();
 
+            // url of api to add song
+            string url = "https://localhost:44387/api/trackdata/addtrack";
+
+            string jsonpayload = jss.Serialize(track);
+            HttpContent content = new StringContent(jsonpayload);
+            content.Headers.ContentType.MediaType = "application/json";
+
+            HttpResponseMessage response = client.PostAsync(url, content).Result;
+            string id = "";
+            if ( response.IsSuccessStatusCode)
+            {
+                id = response.Content.ReadAsStringAsync().Result;
+                
+            }
+
+            trackId = Int32.Parse(id);
+
             // url of api
-            string url = $"{baseUrl}AddToListenLaterList/{userId}/{trackId}";
+            url = $"{baseUrl}AddToListenLaterList/{userId}/{trackId}";
 
             Debug.WriteLine("--- URL " + url);
 
             // send request on url store result as res
-            HttpContent content = new StringContent("");
+            content = new StringContent("");
 
             // set request content to json
             content.Headers.ContentType.MediaType = "application/json";
 
-            HttpResponseMessage response = client.PostAsync(url, content).Result;
+            response = client.PostAsync(url, content).Result;
 
             bool isAddedToListenLater;
             // check if response was succesfull or not

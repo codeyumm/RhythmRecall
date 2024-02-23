@@ -82,7 +82,7 @@ namespace RhythmRecall.Controllers
 
         // paramter is List<Track> because I wanted pass list of tracks to add multiple track with one curl request
         // I will change it in final version
-        public IHttpActionResult AddTrack(List<Track> tracks)
+        public IHttpActionResult AddTrack(Track track)
         {
             // if model is not valid
             // ask christine about this
@@ -91,14 +91,16 @@ namespace RhythmRecall.Controllers
                 return BadRequest(ModelState);
             }
 
-            foreach(var track in tracks)
-            {
+            
                 db.Tracks.Add(track);
-            }
+            
 
             db.SaveChanges();
 
-            return Ok();
+
+            Debug.WriteLine("Ramla" + track.Id);
+
+            return Ok(track.Id);
             
         }
 

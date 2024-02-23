@@ -368,8 +368,8 @@ namespace RhythmRecall.Controllers
         [Route("api/UserData/Validate")]
         public IHttpActionResult Validate(User user)
         {
-            Debug.WriteLine(user.Username);
-            Debug.WriteLine(user.Password);
+            Debug.WriteLine(user.Username + "to api");
+            Debug.WriteLine(user.Password + "to api");
 
             // returns true or false if user exist or not
 
@@ -381,10 +381,15 @@ namespace RhythmRecall.Controllers
             if ( isUserExist)
             {
                 // validate user
-                User validatedUser = db.Userss.Where(u => u.Username == u.Username)
-                                               .Where(u => u.Password == u.Password).FirstOrDefault();
+                User validatedUser = db.Userss.Where(u => u.Username == user.Username)
+                                               .Where(u => u.Password == user.Password).FirstOrDefault();
 
-                if( validatedUser!= null ) 
+                Debug.WriteLine(validatedUser.Username + "in api");
+                Debug.WriteLine(validatedUser.Password + "in api");
+                Debug.WriteLine(validatedUser.Id + "in api");
+
+
+                if ( validatedUser!= null ) 
                 {
                     return Ok(validatedUser);
 
