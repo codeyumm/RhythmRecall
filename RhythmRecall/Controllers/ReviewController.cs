@@ -174,7 +174,7 @@ namespace RhythmRecall.Controllers
             HttpClient client = new HttpClient();
 
             // url of an api to call
-            string url = $"{baseUrl}GetUserReviews/{userId}";
+            string url = $"{baseUrl}ListReviewsForUser/{userId}";
 
             // Debug.WriteLine("API URL - " + url);
 

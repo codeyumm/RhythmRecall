@@ -38,9 +38,9 @@ namespace RhythmRecall.Controllers
 
         // get all reviews of a song based ons songid
         [HttpGet]
-        [Route("api/ReviewData/getReviews/{trackId}")]
+        [Route("api/ReviewData/ListReviewsForTrack/{trackId}")]
 
-        public IHttpActionResult GetReviews(int trackId)
+        public IHttpActionResult ListReviewsForTrack(int trackId)
         {
 
             if (!ModelState.IsValid)
@@ -349,9 +349,9 @@ namespace RhythmRecall.Controllers
 
 
         [HttpGet]
-        [Route("api/ReviewData/GetUserReviews/{userId}")]
+        [Route("api/ReviewData/ListReviewsForUser/{userId}")]
 
-        public IHttpActionResult GetUserReviews(int userId)
+        public IHttpActionResult ListReviewsForUser(int userId)
         {
 
             // check user exist or not

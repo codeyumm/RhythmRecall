@@ -170,7 +170,7 @@ namespace RhythmRecall.Controllers
             // for reviews
 
             // url to call the api to get track list
-            url = $"https://localhost:44387/api/ReviewData/GetUserReviews/{id}";
+            url = $"https://localhost:44387/api/ReviewData/ListReviewsForUser/{id}";
 
             // get response from api
             response = client.GetAsync(url).Result;
