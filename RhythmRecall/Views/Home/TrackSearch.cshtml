@@ -56,8 +56,16 @@
 
                     </form>
 
-                    <form method="POST" action="">
+                    <form method="POST" action="/TrackList/AddToDiscoverdList">
 
+                        <input type="hidden" name="userId" value="@userId" />
+                        <input type="hidden" name="trackId" value="2" />
+
+
+                        <input type="hidden" name="Title" value="@track.Title" />
+                        <input type="hidden" name="Artist" value="@track.Artist" />
+                        <input type="hidden" name="Album" value="@track.Album" />
+                        <input type="hidden" name="AlbumArt" value="@track.AlbumArt" />
                         <input class="btn custom-btn" type="submit" value="Discoverd" />
 
                     </form>

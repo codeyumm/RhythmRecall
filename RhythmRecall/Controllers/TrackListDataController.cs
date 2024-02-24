@@ -109,7 +109,9 @@ namespace RhythmRecall.Controllers
                     Username = track.Userss.Username,
                     Artist = track.Tracks.Artist,
                     UserId = track.Userss.Id,
-                    TrackId = track.Tracks.Id
+                    TrackId = track.Tracks.Id,
+                    Album = track.Tracks.Album,
+                    AlbumArt = track.Tracks.AlbumArt
                 });
             }
 
@@ -364,7 +366,9 @@ namespace RhythmRecall.Controllers
                     Username = track.Userss.Username,
                     Artist = track.Tracks.Artist,
                     UserId = track.Userss.Id,
-                    TrackId = track.Tracks.Id
+                    TrackId = track.Tracks.Id,
+                    Album = track.Tracks.Album,
+                    AlbumArt = track.Tracks.AlbumArt
 
                 });
             }

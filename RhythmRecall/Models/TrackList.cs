@@ -40,5 +40,9 @@ namespace RhythmRecall.Models
         public int TrackId { get; set; }
 
         public string Artist { get; set; }
+
+        public string Album { get; set; }
+
+        public string AlbumArt { get; set; }
     }
 }

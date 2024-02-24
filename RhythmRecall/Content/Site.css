@@ -14,6 +14,10 @@
     white-space: normal;
 }
 
+.custom-section{
+    height: 100vh;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

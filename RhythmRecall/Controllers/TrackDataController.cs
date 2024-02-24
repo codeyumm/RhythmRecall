@@ -86,22 +86,41 @@ namespace RhythmRecall.Controllers
         {
             // if model is not valid
             // ask christine about this
-            if ( !ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            
-                db.Tracks.Add(track);
-            
+            // Check if a track with the same details already exists
+            var existingTrack = db.Tracks.FirstOrDefault(t =>
+                t.Title == track.Title &&
+                t.Album == track.Album &&
+                t.AlbumArt == track.AlbumArt &&
+                t.Artist == track.Artist);
 
+            if (existingTrack != null)
+            {
+                
+                return Ok(existingTrack.Id); 
+            }
+
+            if (track.Id != 0 && db.Tracks.Any(t => t.Id == track.Id))
+            {
+                Debug.WriteLine("******" + track.Id);
+                return Ok(track.Id);
+            }
+
+
+
+
+            // Track doesn't exist, add it to the database
+            db.Tracks.Add(track);
             db.SaveChanges();
-
 
             Debug.WriteLine("Ramla" + track.Id);
 
             return Ok(track.Id);
-            
+
         }
 
         // Update Track

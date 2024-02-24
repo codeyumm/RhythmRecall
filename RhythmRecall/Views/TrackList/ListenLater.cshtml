@@ -47,54 +47,150 @@
     @if (Model.Count() == 0)
     {
         <h1>You don't have any song in listen later list'</h1>
+        <form method="get" action="/User/DisplayProfile">
+            <input type="hidden" value="@ViewBag.userId" name="id" />
+
+            <input type="submit" value="Go to profile" />
+        </form>
     }
     else
     {
         <h1>Listen later list of  @Model.First().Username</h1>
+        <form method="get" action="/User/DisplayProfile">
+            <input type="hidden" value="@Model.First().UserId" name="id" />
+
+            <input type="submit" value="Go to profile" />
+        </form>
     }
+
+
+    <div class="row flex justify-content-center align-items-center">
+
+
+        @foreach (var track in Model)
+        {
+            <div class="card mx-4 my-4 p-4" style="width: 18rem;">
+                <img src="@track.AlbumArt" class="card-img-top" alt="Album art image">
+
+                <div class="card-body">
+
+
+
+
+
+
+                    <h5 class="card-title">@track.Title </h5>
+                    <h5 class="card-title">by @track.Artist </h5>
+
+
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+
+                    <form method="POST" action="/TrackList/AddToListenLater">
+                        <input type="hidden" name="userId" value="@track.UserId" />
+                        <input type="hidden" name="trackId" value="3" />
+
+
+
+                        <input type="hidden" name="Title" value="@track.Title" />
+                        <input type="hidden" name="Album" value="@track.Album" />
+                        <input type="hidden" name="AlbumArt" value="@track.AlbumArt" />
+                        <input type="hidden" name="Artist" value="@track.Artist" />
+
+
+                        <input class="btn custom-btn" type="submit" value="Listen later" />
+
+                    </form>
+
+                    <form method="POST" action="/TrackList/AddToDiscoverdList">
+
+                        <input type="hidden" name="userId" value="@track.UserId" />
+                        <input type="hidden" name="trackId" value="3" />
+
+
+                        <input type="hidden" name="Title" value="@track.Title" />
+                        <input type="hidden" name="Album" value="@track.Album" />
+                        <input type="hidden" name="AlbumArt" value="@track.AlbumArt" />
+                        <input type="hidden" name="Artist" value="@track.Artist" />
+
+                        <input class="btn custom-btn" type="submit" value="Discoverd" />
+
+                    </form>
+
+                </div>
+
+                <div class="card-footer d-flex justify-content-between">
+
+                    <form method="post" action="/User/IntrestedUserForLitenLater">
+                        <input type="hidden" value="@track.UserId" name="userId" />
+                        <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                        <input type="image" src="~/Content/images/other-users.png" " alt="submit" class="btn-submit-image" title="See other users" />
+
+
+                    </form>
+
+                    <form method="post" action="/TrackList/RemoveFromListenLater">
+                        <input type="hidden" value="@track.UserId" name="userId" />
+                        <input type="hidden" value="@track.TrackId" name="trackId" />
+
+
+                        <input type="image" src="~/Content/images/bin.png" alt="submit" class="btn-submit-image" title="Remove" />
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        }
+
+    </div>
 
     @foreach (var track in Model)
     {
 
-        <div class="track-container">
+        <!-- <div class="track-container">
             <h4> @track.Title By @track.Artist  </h4>
 
-            <!-- <a href="RemoveFromListenLater/@track.Id">Remove</a> -->
+             <a href="RemoveFromListenLater/@track.Id">Remove</a>
 
-            <form method="post" action="/TrackList/AddToDiscoverdList">
-                <input type="hidden" value="@track.UserId" name="userId" />
-                <input type="hidden" value="@track.TrackId" name="trackId" />
-
-
-                <input type="submit" value="Add to discoverd" />
-
-            </form>
+        <form method="post" action="/TrackList/AddToDiscoverdList">
+            <input type="hidden" value="@track.UserId" name="userId" />
+            <input type="hidden" value="@track.TrackId" name="trackId" />
 
 
-            <form method="post" action="/User/IntrestedUserForLitenLater">
-                <input type="hidden" value="@track.UserId" name="userId" />
-                <input type="hidden" value="@track.TrackId" name="trackId" />
+            <input type="submit" value="Add to discoverd" />
+
+        </form>
 
 
-                <input type="image" src="~/Content/images/other-users.png" alt="submit" class="btn-submit-image" title="See other users" />
+        <form method="post" action="/User/IntrestedUserForLitenLater">
+            <input type="hidden" value="@track.UserId" name="userId" />
+            <input type="hidden" value="@track.TrackId" name="trackId" />
 
 
-            </form>
+            <input type="image" src="~/Content/images/other-users.png" alt="submit" class="btn-submit-image" title="See other users" />
 
 
-
-            <form method="post" action="/TrackList/RemoveFromListenLater">
-                <input type="hidden" value="@track.UserId" name="userId" />
-                <input type="hidden" value="@track.TrackId" name="trackId" />
-
-                <input type="image" src="~/Content/images/bin.png" alt="submit" class="btn-submit-image" title="Remove" />
-
-
-            </form>
+        </form>
 
 
 
-        </div>
+        <form method="post" action="/TrackList/RemoveFromListenLater">
+            <input type="hidden" value="@track.UserId" name="userId" />
+            <input type="hidden" value="@track.TrackId" name="trackId" />
+
+            <input type="image" src="~/Content/images/bin.png" alt="submit" class="btn-submit-image" title="Remove" />
+
+
+        </form>
+
+
+
+        </div> -->
 
     }
 </section>

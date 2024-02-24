@@ -6,29 +6,68 @@
 
 <h2>Add Review For song</h2>
 
-<h1>@ViewBag.userId</h1>
+<style>
+    .glassmorphism-form {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .input-container {
+        margin-bottom: 15px;
+    }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: border-color 0.3s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: rgba(0, 123, 255, 0.8);
+            outline: none;
+        }
+
+    .btn-primary {
+        background-color: rgba(0, 123, 255, 0.8);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: rgba(0, 123, 255, 1);
+        }
+
+</style>
 
 <div class="form-container">
 
-    <form method="POST" action="/Review/Add">
-
+    <form method="POST" action="/Review/Add" class="glassmorphism-form">
         <div class="input-container">
-            <label>Title : <input type="text" name="Title" /> </label>
+            <label>Title:</label>
+            <input type="text" name="Title" class="form-control" />
         </div>
-
         <div class="input-container">
-            <label>Content : <input type="text" name="Content" /></label>
+            <label>Content:</label>
+            <input type="text" name="Content" class="form-control" />
         </div>
-
         <input type="hidden" name="userId" value="@ViewBag.userId" />
         <input type="hidden" name="trackId" value="@ViewBag.trackId" />
-
-
         <div class="input-container">
-            <input type="submit" value="Add review" />
+            <input type="submit" value="Add review" class="btn btn-primary" />
         </div>
-
     </form>
+
 
 </div>
 
